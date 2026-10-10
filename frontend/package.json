@@ -1,0 +1,30 @@
+{
+  "name": "courseloop-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CourseLoop 专业课助教智能体 · Vue 前端（深空靛蓝影院风）",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "highlight.js": "^11.10.0",
+    "katex": "0.19.0",
+    "marked": "^14.1.3",
+    "pinia": "^2.2.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.7.5",
+    "@vitejs/plugin-vue": "6.0.9",
+    "typescript": "~5.6.2",
+    "vite": "8.3.4",
+    "vue-tsc": "^2.1.6"
+  }
+}

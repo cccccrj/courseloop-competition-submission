@@ -1,0 +1,988 @@
+{
+  "captured_at": "2026-10-09T05:27:01.239500+00:00",
+  "python": "3.10.12",
+  "baseline": "c171ac5",
+  "source_sha256": {
+    "backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/agents/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/agents/error_diagnoser.py": "8ae15f78fe8ed1b1eb3aa15efe294d09691fc1975f0fa914cc0815a44c549246",
+    "backend/agents/photo_grader.py": "9d958984fb605147d7827bce5d9f3494b8ed966b84449bd895af0e43d61b8333",
+    "backend/agents/practice_generator.py": "9c4680c582e1bc91c021fdc3ac003eac70a9ea7469eeb98f79da4dbfe0e6f02c",
+    "backend/agents/prompts.py": "8d7fa6570ac170fb874d1e8db7651eaa48e13d84c1974028c7e10ee15936d73f",
+    "backend/agents/review_planner.py": "679d61cbb0e5296d5f2af2cbc63ecdb58c9c596bc5f045b9be867c5ab0456606",
+    "backend/agents/solver.py": "cb8f336e2b87a4a4d33e557836572b8cfeb7c545000944c2eb0432512c801f58",
+    "backend/agents/tutor_graph.py": "8b9313cd8e1ee28c2765f77d4c55c9110d45bae587969cc271c4c246493f5a31",
+    "backend/agents/weekly_report.py": "b0ff4b69b2fe9f550d22f557a7ab226c7da9767d34914bc2085107873acef93f",
+    "backend/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/api/admin_routes.py": "dec5c6b0b479e18d792886de38355fafabf40b44b0331b238ee1ebd2636509f3",
+    "backend/api/auth.py": "d94f4a1510b12b6b038b30a13269916963e6bd0a13ed7f62af1c43128b8d9b6f",
+    "backend/api/core_routes.py": "5125619385fc5d670fbb6b30352cad4f52d399b48fe526fafe348a0f1ffc8eda",
+    "backend/api/main.py": "272e4da4733474fe38497f9c7aa8d6ecdb950a1dcb8f4b1594e816618d3ada84",
+    "backend/api/session_routes.py": "680b6d6345f44285af40eb8f01a459870df193187ed594f21a4e6a87e7875a81",
+    "backend/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/core/build_info.py": "b3c11fa7ff46cc2260f7f84ed841c439ed92290b22409a383a084860ad2092d1",
+    "backend/core/config.py": "3a087e81048b6d9fa85229621bf873844e7e7ffdf16d81baa100e9eca452175c",
+    "backend/core/courses.py": "7947034c2304c93f04980cf97d4d3ca3c47ed5bff80e6abf2282cf738bf2fbb7",
+    "backend/core/db.py": "1e8fd5652b73c0104e56a3ea33ff8b949ad4b2356ed782b3620e59f812aaed90",
+    "backend/core/device.py": "6321a1a6a9da7dbfe9013c1ec6e20fa27c47fba939ea480135152632efd958aa",
+    "backend/core/errors.py": "7b3e7e8dad6e5577fb21d77a8f0ba80a5fd6f921effc9d30f97951523a122e4e",
+    "backend/core/generation_contract.py": "07080ba514dea0260e7d13cdfd19d67bdeb5006601255224e00122878168d145",
+    "backend/core/jsonio.py": "7c39a2884a1550ac58b00b96b3886c8aeb26f850758df6f6f5812336f9fddd07",
+    "backend/core/llm.py": "6e8189bec05c438813a8c95427ea6faf3f63c1597a842c583afc5d68f62bb778",
+    "backend/core/sanitize.py": "649f067b7e653ae2e179b64c8d77131923cd12b947079e306127108851ca1a88",
+    "backend/core/security.py": "d1d7f168709ae7e2eb8211ecf95470b4419a8edb9928e849c9d2c75b03509361",
+    "backend/core/telemetry.py": "1941c23a2c5aaa513fee6c9f67bc22d719750043d154c0ad524444bfb6946db2",
+    "backend/learning/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/learning/classroom.py": "ae01345fe8c65bd79bff135894007c57de928e9e20ec89adeb835cb73e32bd8a",
+    "backend/learning/community.py": "3aee1d54d930052379fd4e1fe3bb88220cda3999f5a918650ccd5d7b458263ec",
+    "backend/learning/error_taxonomy.py": "4405ffcb62c823fcca18a90f16544c49c31af15ad40b5ff87ca392864824e34b",
+    "backend/learning/mastery.py": "11cf657a66f2313e88b1aed077e6ce84f53e768f5640ba8d24d6949f7181c6dd",
+    "backend/learning/mock_exam.py": "b28992fce593633549dfa9b4c107dcb1b9d1cd408427e918a8b5cadcd225a365",
+    "backend/learning/placement.py": "db1b84eeb028923af4d19795e4606e26853d55829e706b6704cb35dd0a9659cb",
+    "backend/learning/profile.py": "f203f53874fb47bc3e4c3b4c5cc4f3ce552c74852e6835e13c9f927023f46a90",
+    "backend/learning/review_service.py": "ca00c67cf65e0f63672b469b8fd33f63e81712339e76a5db23cfa7ebade035a1",
+    "backend/learning/spaced_review.py": "306836c118ecae638db6be3214d7b8e1a0442d4d4d3183d7e5cf0df148a131ae",
+    "backend/learning/study_budget.py": "f2d4cd6b315ca6677f407e486fe2c08121b68f2bbf7264cae0ab50a2fd6b94a3",
+    "backend/rag/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/rag/chunking.py": "dea5cac33c91b40f221f013fb600749bbbbb964db84f9370b8d2ad69d5e5ad5f",
+    "backend/rag/indexer.py": "782bfba380e62118157f757b8346deb85154a10b237b56ad4493bb42ca47e8a5",
+    "backend/rag/ingest.py": "9ed2a2b3fe283caccb89e29dd75e4456c61e3c38e8cc06f8ed1af2878dda2be9",
+    "backend/rag/ocr.py": "7cd8014723790c0862046535bad8485b5c937d24a7e5371fe8a2e04d451a5be1",
+    "backend/rag/retriever.py": "e4a79fae64d2b5d2c640bff98c4b5ab13b6d67a7ca3654f448760c51ef4e0dfb",
+    "backend/verification/__init__.py": "29e5e9771ef432d83a8144087583f595be114f1841046858a38812a076bfa33a",
+    "backend/verification/base.py": "59af8449096070e984b505d7337013a64913d6cb9b4442f0b6b4ca7c41042985",
+    "backend/verification/citation_checker.py": "5cc372b6aa0d7e33f39479da1a200579ffdc3d88b7a44493c02ab4387b5875ec",
+    "backend/verification/code_errors.py": "698bea6d2c7ec377b598cf6e2a145ddb0293607d4f432780360c12887f95f75c",
+    "backend/verification/complexity_checker.py": "7741a147e0aa42218bf081330f062d3e78766e3e6c7d0eaaa2a361c29ca214e4",
+    "backend/verification/cross_check.py": "01508aeed2d97308f3b65957bda6bbb5228c3b7c50a71723316f3f2f0397dcab",
+    "backend/verification/numeric_checker.py": "df17e13827d77d69cc345e3f9e4cc47ccd1bc7b307e4ca8a68e1d53983f0f1d3",
+    "backend/verification/rule_checker.py": "94029359e66afcf15f74d26d329d3a4a426541db29db3c14c573821110af75e2",
+    "backend/verification/unit_test_runner.py": "52ec7d36aee70e5c1ae4240fcaa27637f77a32d354aabe7c88806973bcfd01b1",
+    "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/_ab_monitor.py": "6af059e7e041bd9272453cb7c53b1e1e7009379a63f44eb3e98401627417fe72",
+    "scripts/_auto_submit_train.sh": "495c8dcca4335036889ddbce3cac1d357f1b7bb1f0688dab75689803a1dc8ca1",
+    "scripts/_finalize_e10.sh": "42dc16f2e8c62403418ccfa59ce8fee8f36cdd08c161cb100ab574ef3342fb13",
+    "scripts/_solve_acc_eval.py": "2ae0ba281f7fc4eea2551f2481f170912c876582c9e5fc804a5068a5ab4a9937",
+    "scripts/analyze_llm_calls.py": "098e30d28c0ec9a435cf1609bf134c2ef13b59a9a52798a51ad323e7e9b0a79d",
+    "scripts/audit_synthetic_samples.py": "59b4c57e0e84cf3d4161b5d50903a7a26b23684c0b2eb3c1952ba3c094e31b28",
+    "scripts/backup_userdb.py": "bcf8bede33a1c8f3714d451ca8a4c25b7ce3614a610fe2a965eaf42cdbf5b67e",
+    "scripts/bootstrap_demo.py": "deabd4d44212c0aae9949faa6826487fecdfa92789d24965de4c596ffbeecb29",
+    "scripts/build_fts_from_raw.py": "e4365f62b4e60749f69544b17d6ca304037916e2500967afa41fba4437596ba6",
+    "scripts/build_grpo_data.py": "a7ba3367a788df3c8122c83fdb68a2e2e25272582a7264333b6919a87a5db2fe",
+    "scripts/build_light_rag.py": "a78c3761a5b6ee706d9e8d54d669ddd7dbd52b499bbc059366e15c37c8112a8c",
+    "scripts/build_preference_data.py": "31b5b59f35353f079545d9ee9f20e44cbe131547f81ff8fd9215dea2c11858b7",
+    "scripts/build_runtime_routes.py": "c58ac6f81bfa641d876733d7d01663238d17831102bc69c3a938675676f8c744",
+    "scripts/build_sft_data.py": "45d192fb7f32c80e4d73cce831001290596c1634af7b0e5a83d18b7797bc60c0",
+    "scripts/calibrate_params.py": "921a4326df2962d8d09ba65fe23880d8dd99bb33b5a4661340c92fa2444f578c",
+    "scripts/check_data.py": "78517c704a9d3a10cfa9ab3eed19bea297f61cf9dcf8a96dcda97e647941989a",
+    "scripts/check_learning.py": "ba11f704f39c55b704a9d9208580c5c2d2b1f69b03d599f74fddf8abfad7d91b",
+    "scripts/clean_dialog_markers.py": "729a1b5c222e38ab189b22147c1db0c40b06a9c45d950548329f1da24d064d4e",
+    "scripts/compare_incremental_sft.py": "0c713376506a2908076931d6791fc0a65a11157a26791206d419ac8c978ad3f8",
+    "scripts/configure_demo_env.py": "743c6844ac6f18e009e4f7142a41c1b4cdabc33a83c20c07dc396623289f8137",
+    "scripts/cost_report.py": "e093def2ded576b3b4b619af760e6ac24fd78f4a0a5aee012ead8de1c3e30223",
+    "scripts/curate_demo_choices.py": "2eef9e0f89562379a0365611b1254aeae8975105a06f7e91f43ef4c0e4566927",
+    "scripts/demo_roster.py": "f275309b4a928a9fada8f6fcd4488d4c66b57e226914403055f15965d2d3d23e",
+    "scripts/eval_targeted_semantic.py": "dad514d08da68de1ec1bfe53064a14e18e4d9b1ed9f69a35350564be08fb629c",
+    "scripts/evaluate.py": "fbbf1c603d8aecfeb94a03c0c1d0fb3221015a273cb4d95377327574e8eb84fe",
+    "scripts/evaluate_diagnose_fallback.py": "efbaf51647f3b51d4a496f7cd908c0a4a8b6c06caaf7a17cd34394ff03e2d1d7",
+    "scripts/evaluate_diagnose_probe.py": "54b53cb2dcfd7856c6d0f6a71b99bd75fb4de389a8da0e64a3121f62a277a4aa",
+    "scripts/evaluate_diagnose_probe_rescue.py": "e95252239ef909030969727bda7d256a73f2df4fe2b946a6e6b4b46b81501dd0",
+    "scripts/evaluate_diagnose_taxonomy_rescue.py": "f4f9fd72ed56786606913fce6b663cfa56a3f26f44cb255608e6e0b90744bd40",
+    "scripts/evaluate_qa_probe.py": "ef5a7dd194f2f9a924605918b455088ddc2e6255cc7c30ebb5c1cfb41f72bb12",
+    "scripts/evaluate_qa_probe_rescue.py": "1ee5fe21a52f2ae6dc74be130bbe9a1b7e6938183180376f2c601614c4b0b0b5",
+    "scripts/extract_demo_choices.py": "02ca995c26ce6d0debb7b493fa7ec25088ea945e77f7b2c6286524b24c7c0125",
+    "scripts/fetch_corpus.sh": "3609d5176b89def84d4eb482862cddd5fc9ce30713274865dc133470ac8465d8",
+    "scripts/fix_choice_canonicals.py": "046fab6ba57a19e775fc912b9464f90eee2fbdec6759072839dd54b5b8862a9b",
+    "scripts/fix_knowledge_course.py": "1548bd0b6c502b9be828ccb30913fce5d6e8f2b4cf13ae598525e3d6d0c80611",
+    "scripts/generate_sft_pilot.py": "a989d8ca6f6726959879c85bf3e37a0bffc8940e0abdd1fca13183de938f7116",
+    "scripts/generate_synthetic_bulk.py": "bd0cda1fbd6fe6d3d0adf68ee6b71df0bb373cfce94368fe53dfef06ae58f404",
+    "scripts/grow_bank.py": "e4aaa1e16efa1b036d23b29d2f1a16d5fa30d9a355fbbb03c7c6ca5c302ee5a5",
+    "scripts/grpo_rewards.py": "b32ec1d76a21a52e458730b4b550eaf1613bb847574fe0fec98fd52f62eade1a",
+    "scripts/ingest_past_papers.py": "cd488f2d04cd458d7f73e11b1d4748a5e21c8c2d85c8ceae5859500faba1df8f",
+    "scripts/knowledge_align.py": "00fff0a82585bd5840e67b447c7018ba75dab8b3e08669727b2635a66bb5b5d7",
+    "scripts/manage_users.py": "baeeac83b2cf96da3c30bc25ab71c21f7f5e445863d46fc98094a287adcb33f0",
+    "scripts/merge_business_data.py": "5a3516052e97859e71b7e4d531595db0059ace40b21301cbea4258d3eb88ee39",
+    "scripts/normalize_choice_labels.py": "7c38e24bd9be1147a0dc43e4fa67ebc953fc44e5d8788747f82df1b3e2bc5208",
+    "scripts/ocr_bench/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/ocr_bench/common.py": "9ebf4e8619d90340573b9def3a87a6540d8209cc5255cb105a7326a27718a055",
+    "scripts/ocr_bench/prices.py": "05fc8572c253de99b05a54a27be87f5c9060af357192fd77e284342237798a2c",
+    "scripts/ocr_bench/run_api.py": "380f5004904c606b50a2ab0f83f4131690fdcbed9e0092ea2dd40f2234b6608e",
+    "scripts/ocr_bench/run_local.py": "6f0c4cc72839332523dbadea7aa717443cf9f51ace71787cb2e74d7ead7b2587",
+    "scripts/ocr_bench/score.py": "4cc7677bd20239c83607d62ab3ab3e120b3fd81c5fb20ea874286ba96cb2cb65",
+    "scripts/ocr_bench/transcribe_all.py": "24d3816c8d769f68003a74749bc3d52c6de3f700191b1772ec3c1875b22b20fc",
+    "scripts/package_release.py": "f223f008a609d84da4225535c1bc26762d6792c8ffb49707b579cf6df1886409",
+    "scripts/practice_to_bank.py": "fd931fc0944d08672fea164d1f3b79531250910456233022cce763321c8b6404",
+    "scripts/preflight_demo.py": "c55fa158859f176ed2cd28959028ae2cf2fd5d0adadb25cad9a19acbcb29652d",
+    "scripts/prepare_diagnose_probe.py": "d5f19f014018fc73853641ce8ec7f0151efe73b2e614adbad8c4ae7fb9caaa1a",
+    "scripts/prepare_diagnose_rescue_probe.py": "cbb38171b977570c68ab92bbf448e55a94c111e6106bbd939254e5bfcab17259",
+    "scripts/prepare_diagnose_taxonomy_rescue.py": "dcc61532a871e8108688e177e9ed95c1ae14481cac4feb9de000d2eb621442df",
+    "scripts/prepare_incremental_sft.py": "c03008818c19935f4d5c433b764421aa2b0d1966cdd8e2442d336d655e1fd398",
+    "scripts/prepare_qa_probe.py": "3c4c095787c25ccbaa93c33d170e15471e89034d565fd0f6a16c4825ee664c42",
+    "scripts/prepare_qa_rescue_probe.py": "cf67d7323a0167ab44b88ce69ab9b4334b311175e663275a82d41ce827069a4f",
+    "scripts/prepare_rescue_sft.py": "a4e0a476f41cc2855000d151d71faff7cf4454aa2985821058876571317e93dd",
+    "scripts/prepare_specialist_eval.py": "76bb8c29fb0024f861607bdd9fe259e41cc8d6740ab099a6b6cb798d8cc472d3",
+    "scripts/qa_paper_draft.py": "a434db759e22ad4c132be1f852c81e1da8051d385ba8db0aa6c091f2128284e1",
+    "scripts/repair_bulk_blind_audit.py": "c451ab08052bf7d5298e148682c1fcd2ce676335b907b92ecd9b2cee9020fe45",
+    "scripts/resume_fullgrow.sh": "bc6de1d062cd6d0dbc31f0057065c8e776553aa1d1748b716f4d5dd3e73ee528",
+    "scripts/run_15h_optimization.py": "27e442eb6f1bd4e8f97f21cb10c7acde29e06c7a1e9eca3dc64baa1e55d6e038",
+    "scripts/run_diagnose_taxonomy_rescue.py": "77b3c4818e08fca9aa250d0c6c5ecfb40a5c345558feb01d576c16d1a1ca5bed",
+    "scripts/run_qa_contract_rescue.py": "5e9a3a931509ff134397029c00ba42175fee7f81f83d1d3effb5578bcce0d1a5",
+    "scripts/run_semantic_repair_then_resume.py": "6590ab4b1b9683c0d6d2a5f8f55a36bf294655f3d72209b323f6bf897530029a",
+    "scripts/run_targeted_synthetic_pilot.py": "27d87b52404bb22a0e3efede102625192569aca45c1a8ebe9debf0ad0ff0516c",
+    "scripts/seed_knowledge.py": "92d21f61ec610020959b31c646be3c0bfbee842cc01e46d88fb1f6292fb01b8c",
+    "scripts/seed_problems.py": "b0da2231fd6048012ea56d1ad572a4218c00cd4baf65e59fcec6402e4ab60956",
+    "scripts/serve_courseloop_vllm.py": "0d5542a6c00e548490ca68579198efb359619884dc675f78af2923fc15800098",
+    "scripts/smoke_demo_path.py": "6056673d8b12fbf67b0ce3e71b03204d402a354918fd9cec9dff9b682cfb0501",
+    "scripts/smoke_learning_loop.py": "8c5b8719e945494564e6e6684e1de1eafca2934d732a66deb0fc92ecab5ed7f0",
+    "scripts/teacher_bakeoff.py": "bbe399631b3c06e10ec9e52305d81136765d781a0f4cb68f6a4e70b0ed6a4f22",
+    "scripts/test_lora.py": "4900f20700bd596f85e19d2a88f1ee68f50702b1ec8a495216b0efbefc62283c",
+    "scripts/train_grpo.py": "bdf7b334c70c9bb70636ca499e9d50ee14b81657c44c1f273527a38802c0fb6f",
+    "scripts/train_sft.py": "00ff25f8b050468bdf32903129a539a2e9b3541cceef1f57fa13de84da9eff61",
+    "scripts/validate_sft.py": "766a755aafe8ec574241ee68933d1e741c3a5359511ffbb4db43ac79ead0b32b",
+    "scripts/verify_all.py": "e10f13f7e853e4c296971c34d18330c97f376eaa5954fb11bd0eefd769ca513f",
+    "scripts/verify_bulk_semantic.py": "b5891ffa8880a2800cfb7a68015dc1ca3202ae85baeda52724ca593025b2424c",
+    "scripts/vlm_ocr_test.py": "6c3896d8844f79c0e0921bfa76eac7b13ab6ff521b29d51518fd45d63e9f6304",
+    "scripts/watch_diagnose_probe.py": "be959bf074b71786bc078b68882fcf68b586597d3133ddc258785c70dd02baca",
+    "scripts/watch_diagnose_rescue.py": "775df548a01c5793b056854a8045163041e5f4eba09e3e892c2270801bfb8fdb",
+    "scripts/watch_incremental_completion.py": "1492337a54644690a81b789f51fcf4320cc0b755cadf38e7d00c9aa142a46c3d",
+    "scripts/watch_qa_probe.py": "2ba1992873cd72bd63e5cb7fe200bbdb653ae07673bebb1152e0b1a6b94ce96a",
+    "scripts/watch_qa_rescue.py": "b94bed90be6c03595c9d982e34795079df6dce0ba9bf23d9bb4c07690c8818ae",
+    "tests/test_admin_users.py": "46b1ad4219664ea6e32bfb2c83d3e3f07878ce198924b3651c03bd8811bd46d3",
+    "tests/test_agent_task_routes.py": "a51c1a6087978a473dc6d9121e3022b4845fb1d7f2c256eb3aa512085308fb9e",
+    "tests/test_analyze_llm_calls.py": "e0771bebc937edf3b74c1a0a328568a4d1bad02f231271061c02e039c84d8b53",
+    "tests/test_audit_synthetic_samples.py": "b9f528b2a7536d9b6ab8313a42e1d14498e3871b72dea9e529f99ae31580b4dd",
+    "tests/test_bank_growth.py": "d959e12fbb6f29fe0706e44ed5a042551af9a0db8a39f09ef12b449f2ef7813b",
+    "tests/test_calibrate_params.py": "c33f9d0ce3a407b2c6723bfbb60c2cf199076abc41a963fb6f2e7b0484bf5af1",
+    "tests/test_check_data.py": "fe76cd13fe6d110d520935eedfd5dd4deea2af5124d4e276cd766b1534befc65",
+    "tests/test_classroom.py": "bb79a19ed604eb25f6ef8c2441fa06b90776d81a4716563e3b7ee966fe0ec520",
+    "tests/test_code_errors.py": "e9150beff836eb60a57e80b8e407c88d336ac952b0435993321372b148d3d7ab",
+    "tests/test_community.py": "1416ca27b7ac5757b1ee91dca972f6479076940c76b06825ed1276bd63529ce4",
+    "tests/test_compare_incremental_sft.py": "2f0d871212de5ebf09be08a512aac366a7fd5443a5a8cb88d96fdbfa6d7d9875",
+    "tests/test_cost_report.py": "c37a940e05b3363e46f236733a82a24f77602a1e621e9b33ed9dc0ef807067ea",
+    "tests/test_course_registry.py": "9882cff152efec5de1086bdd1e5109ebd313c87b1d62873e509abc0847d544f3",
+    "tests/test_diagnose_fallback.py": "fb4793b74b732ed850b4dafbc103e1afcc1d9bd96990a77dc4322cf7006f9ec6",
+    "tests/test_diagnose_rescue.py": "2eb5a1a5a83848db380571b59e746ed85a35605a6793c4293f079fd1643ca4af",
+    "tests/test_eval_targeted_semantic.py": "398895882daf0e68fba4ba9035f8aa5ee86f0f088e0c539dd12fbd30c84136dd",
+    "tests/test_fix_choice_canonicals.py": "7e6cb2f0740fbcba43c3fcd1603bb48929686f0dec3e1bc1b8080556e59f857a",
+    "tests/test_frontend_constants.py": "bf76dd8db16577e60351600c557deffc90a3b5f50d67c8974d40ff616e40b6ae",
+    "tests/test_fts_from_raw.py": "0fabc8d30bee61b1970acd91af6055890090f2c2484fb2588ac7db87ef720def",
+    "tests/test_generate_sft_pilot.py": "52e22e309231a79b9185185111ecc85532a61d3f46385bd4c134848d21efa632",
+    "tests/test_generate_synthetic_bulk.py": "f694fc579885ba6356ff952dcbd078a99b4b01baecc6acef6c911659ce9f2876",
+    "tests/test_generation_contract.py": "aec467c7fb7e5d304429dbe9e2e37cd146688cd7907b07a38e5e9ce8fa62b892",
+    "tests/test_grounded_qa_production.py": "2e4830ce5e34378d25b318cab70a2525c3d1051fa98bd586697d69b5876afcb0",
+    "tests/test_knowledge_align.py": "ff4c9af263229773d0edf7286c9de3fc214c80b7758f5e5ec6dc6ae15c4ff793",
+    "tests/test_light_rag.py": "319d95bd98a6f3892105776b51b03483c8f328a033838f1705102d40803a1f56",
+    "tests/test_material_ingest.py": "84a17999c8c7bd96bfc1bb8dbec1fc29b5f99cec974bff4169d3c3b84b807b9a",
+    "tests/test_mock_exam.py": "a453e614d88667f718161ba322e5617a26ce56901f232cfcd86b2bd30717bea2",
+    "tests/test_nav_layout.py": "3d173b20a00ca33ee1cc23faf0e1e906d1d445f0676576c42d5f14cf3fe82015",
+    "tests/test_normalize_choice_labels.py": "7a33d1c7c0b82d706f50256cb575995b02d755d70d2ff6ae96c52d9c30b728a4",
+    "tests/test_photo_grade.py": "168bfda697bcc35e97f35dd4acb4b4e9e8e87646e1a9dab44225ec9c634cc466",
+    "tests/test_placement.py": "d230e73b96a97f63d20a5fd149b31b4fc834a420befecfca065b6ebf3f0de78a",
+    "tests/test_prepare_incremental_sft.py": "54c75abae093a3457e144a5b95604e0efcf2e285d3dc66c18bb92e9885db80d7",
+    "tests/test_prepare_rescue_sft.py": "4a7ecb4b5c1e5e15a1946a5c81c30e6f26dff34b787dcc0b14e9e3128ea622da",
+    "tests/test_qa_contract_rescue.py": "8a3e8923be8fd434fdfc8a0a30dd9d5a864fe1984ccaa29d5dfc03acc098d331",
+    "tests/test_qa_paper_draft.py": "2c3cd7b8390c2ca602cfbf3264de638fb2355192d59e485c5eb1bd01f4f63a06",
+    "tests/test_repair_bulk_blind_audit.py": "082612d3d9f3eab16a535ccc2889f645942bc98b3e98d42bdcdc08df627d9988",
+    "tests/test_review_loop.py": "1597ade1510f86ed30a70eed187fecdc79393415cefcd01e3d510e1c383399a0",
+    "tests/test_run_15h_recovery.py": "399fd81dbc042d77d4eac908e1e1e6067de71c7f444cd9bfdf7326bc64aa16bf",
+    "tests/test_runtime_routes.py": "10f7459c58d5571f048594eaadf5e85686d02a9181f2b6628eb6d5382246bcbf",
+    "tests/test_sanitize.py": "be50b002b8f3f405e3e494b08e4c72571848b46def2e100bb5dd32e7d3903e26",
+    "tests/test_serve_courseloop_vllm.py": "385bb177784849e27d6bd38dfc1549ea973d46bd644a6f3d7b6b6e94ffadf03c",
+    "tests/test_sessions.py": "38c6f6bb2bcfb9d3ed4d8c19bf976d6ef1b0acab4905fbb42e6e1d72f5062432",
+    "tests/test_specialist_eval.py": "1ff9f179e9b734a9cd491e3e361217500a62724f9f15e37a7895ab636d06cecc",
+    "tests/test_stats_consistency.py": "b31aaebe347885ffe2f0a06d5bb57098ca6e9cf3099e9cdd0ab7e6f90b56a3f2",
+    "tests/test_study_budget.py": "1c624d1e9073058b15f2d5b676e1c1bb5ce20ecd40d8f9230ed3637d4ea94ec3",
+    "tests/test_targeted_synthetic_pilot.py": "83f60524cb3a8f84d05fc59d3a3106de7a57471cc2879fe4fc87afb608a6b561",
+    "tests/test_task_model_routing.py": "77ae8e0c174b3488493478f59c6aea24cb9a8479ba8fda5f3793e2bce8df03d0",
+    "tests/test_teacher_bakeoff.py": "4077b450a4c50402b0c1efd90081d06fc2c0c1134bb8d60a8150e067d1bc5a92",
+    "tests/test_test_lora_intent.py": "5383118c5d2e15e0eca46e869435e7783f7f986cc29125a95e973324970b876f",
+    "tests/test_train_sft_resume.py": "5ee3f9910ccaee9ff790740411f2ab8adde2dcb82151246304c1af9773ca5d6b",
+    "tests/test_ui_copy.py": "91cd4943c89434ca960140d84a86d62773cb4d22f2f5ccbf1a77a2fb7bcf5581",
+    "tests/test_verify_bulk_semantic.py": "dc3b1577e60663467e4d6348c20cf258184653bfafb8f9458d310a9e537dab8f",
+    "tests/test_watch_incremental_completion.py": "2e92f3453cd1b4c9e489ef64a5f076ba3239672605ed3fa715142f69d2b73d3f",
+    "tests/test_weekly_report.py": "c3fcd9a9e66822c2aac1f997e07c35ef0544437a4ac76e8f53d01cf7fe030964",
+    "frontend/src/App.vue": "e999b9844884549d3e267e3c5e5e4be03be257d93a5445881994a5933d6762a3",
+    "frontend/src/api/client.ts": "1a24551acb5f3cb1560ffb056a166d232ffae5e98d3b97adce3801248bd5756a",
+    "frontend/src/api/sse.ts": "b0569ef0183778bae505e85a008eba3a16b67cf0f4a74bc5a29bd64c2a0333a4",
+    "frontend/src/api/toast.ts": "f4421bc86accb3e15c10d53d15207e8e2e57f146cb72ae7c9457d9b7362d8092",
+    "frontend/src/api/types.ts": "de3c2e9f75e4829893cfe1b7e188fa45a01b4ff5e2ca50a31fde6c372795a8ed",
+    "frontend/src/components/MarkdownView.vue": "4890a9d1b180fdf01cdca84edd49b8940b4f69d109471a6c790bdd5419805a49",
+    "frontend/src/components/ReviewContext.vue": "164159d91d48f3f558f7af01c8ec95aa31f2d2ec33ea5cec9f58e1947c47354d",
+    "frontend/src/components/ui/CLAuthShell.vue": "caa4fe4d3961f01e33598098021741156e1f9102ab805ad8d68d5a2442b32008",
+    "frontend/src/components/ui/CLBadge.vue": "3ef97decf3d6d9b097dc0d9e740856d6dbd4449a298e83f61c73cc2d0d23c00c",
+    "frontend/src/components/ui/CLButton.vue": "7ae04952a217cf77660963dc1c462a65fc8cd347165b381d851b11cfc1bc428c",
+    "frontend/src/components/ui/CLCard.vue": "4140988137b31fbf6fcc055012e3fdf67794da6f5cbd5ac4bc52217310a41807",
+    "frontend/src/components/ui/CLCitations.vue": "6860e7c8b261abfb09f07a7c711f89ca044094831c3a97aa5945f14badd19c89",
+    "frontend/src/components/ui/CLCourseSwitch.vue": "fafc6206d4ae9e6dae4e88dd82f69065ad348ac247543d0548ab1372d97e7032",
+    "frontend/src/components/ui/CLEmpty.vue": "fc6a1f9bb403a03b81b394b064eab3d21f2df773d1ca614bf9b9d58409fc7550",
+    "frontend/src/components/ui/CLField.vue": "26fb89673e6eb0265a06b958f1f573c4379744038113454697c74184fe725848",
+    "frontend/src/components/ui/CLLogo.vue": "2c33ef9d845f01cfe4259bb5c3437116e0a05516ededa3e87f2d4c86167e3da4",
+    "frontend/src/components/ui/CLPageHeader.vue": "69971085d903d62232251a581ebb62fa0b11959b2720eae1d3c910db95ac7ed5",
+    "frontend/src/components/ui/CLProgress.vue": "7a0dfc010e8d0d0e450e42424f0bf33a90f925ee9df638b40ad245c70e0f8792",
+    "frontend/src/components/ui/CLSegmented.vue": "993371d3eaa4fd597cf8b385adb72858901cb3bddbd0ff70bd82d22ee4e79a3f",
+    "frontend/src/components/ui/CLSelect.vue": "7fda0f77f7bae7b46d30a32314f6c3830a982af0099ad2351f6aff79e88a7866",
+    "frontend/src/components/ui/CLSkeleton.vue": "216b9fa340dfebd1a104367538418381c6eb5270cf6b75f947cf136fa59613fa",
+    "frontend/src/components/ui/CLStat.vue": "743145a66a3d0d1f4ff289562e284392dd24b6806bac5c39c7db9fa7a9cbec07",
+    "frontend/src/components/ui/CLThemeSwitch.vue": "b33eae48b3bf82819f94e06db1e5582f3a3fcccf0a6dfbb28c1922ded67e275f",
+    "frontend/src/components/ui/CLThinkBlock.vue": "89656f70267cf47b410e18ca658fb4d40c686c43674fd4d05d64f5d34219048e",
+    "frontend/src/components/ui/CLWeekBudget.vue": "b4f0684b52420a715bb16cc56bea18c16c3881c910ecf0930aeee28e6cdff578",
+    "frontend/src/components/ui/index.ts": "9919c58c05caa5fa3734da1c76a0d8073064629b2ea3d5b6073fba303a2f07ea",
+    "frontend/src/data/colleges.ts": "45cadc50e369559a1caa0ff24924c9a5b0340805012b0fed32b06aefc45d52ea",
+    "frontend/src/layouts/MainLayout.vue": "14374673be838b938bf2bb19c72589c130e15a02293fcf7aeb83681da93b8830",
+    "frontend/src/main.ts": "a50d87a98ef6a659b7825f7f88c45176a0f5da89f79b7d097c8555a014b2e25a",
+    "frontend/src/router/index.ts": "00f8093fb1b789a3f638c094c7407d50920acc8d5851da7282bd55cb88399af2",
+    "frontend/src/stores/auth.ts": "3d63f5cfb639b3b77c2f3daa60812f1e4bab410eb445764aad4fa45903b03ba3",
+    "frontend/src/stores/chat.ts": "cd201097f6bee040b19ae106ed5452de49118fc46eaa522e98e52fac260ddc24",
+    "frontend/src/stores/course.ts": "147be472b5af66240008e1f21cbc80fb3e1f2055d3eed81fd16742f9cc3c476b",
+    "frontend/src/stores/exam.ts": "8bdb50957def2497bb2ee32a0e6964f8d96c618a9ce7735ccb69a7e6debe7843",
+    "frontend/src/stores/snapshot.ts": "8a8b10716db31db9974588480df68516e0ac66956879f10e74bdef8a517fcae7",
+    "frontend/src/stores/solve.ts": "75ee3c37412720eeab27b4af87cbf25f4a6be766e191d9bbffa9ee5dd1a4ddec",
+    "frontend/src/stores/theme.ts": "ebbbbc6660637f5c30c71dd027020c56ede8a5d8dc4366cb7d93282ed6065469",
+    "frontend/src/theme/theme.css": "d40184e4db36dfa3a7886ff01845da22205a00b98edd0a9f7a49d08e143f1236",
+    "frontend/src/utils/mastery.ts": "572674e8b62bab851c05eb31d62738dc32f9fabe48bc9896aee84acea12c94f3",
+    "frontend/src/utils/sanitize.ts": "4e22bf4e4d59846f49f60e9d4b0a140f4dc67f5d4a31fb3b074d7fc4b297f1b1",
+    "frontend/src/utils/shareCard.ts": "14181264c8cbf21198d1dec92ce87620f6c6eef1d4095fd8d00c303493ce4500",
+    "frontend/src/utils/stem.ts": "156fc94218ef24e5d0ee9236aabd7cb47fddaacfed204232e0068a76cf833028",
+    "frontend/src/views/Center.vue": "b57d90ba7de786b3331b8f4a6256fdaab8ae0a7dd34246af32dbe6a7bf597891",
+    "frontend/src/views/Community.vue": "9c7615824c852952a4167175a006ee0bb1a5ec9f77d2e8db6e7e4ba2c1ac2520",
+    "frontend/src/views/Hall.vue": "f84f3c7a9d48fefef4bc50214e71870cae6ba2dc50c2236270dd06d1e5dbe437",
+    "frontend/src/views/KnowledgeMap.vue": "4803d34bbdd985e4a53c2c5b809da42cae9721ba967c66e55ea662688c2a625f",
+    "frontend/src/views/Login.vue": "8413c566181822c4db6823b8306d9f64c6451b6b1e1a91df7e5f970666799f13",
+    "frontend/src/views/Materials.vue": "284dd29bcfc80e6721b8a23ebebfb888bddda0b7122bc64c93e61d161d5edb8e",
+    "frontend/src/views/MockExam.vue": "f6cc456f599331a7bb9591c0d4701a345aa161b53dbf87a18593a3e5f5f6e652",
+    "frontend/src/views/PhotoGrade.vue": "31ec46f9eefd39ecd4822d8c1a4a275a66164c1d31a1befb5520103dd69e02fe",
+    "frontend/src/views/Placement.vue": "6c0ad5ae06a206c254d42f926b2b8b87bd5dedff7499887c8fbcf42df237c6e9",
+    "frontend/src/views/Practice.vue": "ae2e655849ed4dc4a5443cc3b8fda1087d6679ea71dfa331d4b9d0f79e0407b3",
+    "frontend/src/views/Profile.vue": "f3df22c2840d6738803a176b254a9cac630f46312a067ca41a2124c6a1d23004",
+    "frontend/src/views/Records.vue": "917a9dbc713c04f7dbc5d711fbee662be81d76a74b44dbba3bfef2477e578e14",
+    "frontend/src/views/Register.vue": "79cb5592f150f4b0297fbe98387d56bc781dd7af9dc6f0053a191cf81ce508e9",
+    "frontend/src/views/Report.vue": "a8bbf75d8880b65a8f3dc81178f464e0eb8e6f618ef3cd8fb0f1abd9a0d428d7",
+    "frontend/src/views/Review.vue": "81c90ef48110a167864db72065101606c54149b6221c8d09f924ab9ca0a21ee5",
+    "frontend/src/views/Solve.vue": "ad4f1453771d5ec497dd34d2c00c94eee157d32f6a055f8ba45933f6e5f96fb8",
+    "frontend/src/views/Teaching.vue": "6e3cdf1650a067c77473150345d91c369efdc01fc4f673f3b6bba9af61342747",
+    "frontend/src/views/Users.vue": "e96ba367b21f596147e055b272a4517f14c2023f1a8e8b9b5242a77d3cb9b705"
+  },
+  "business": {
+    "integrity": "ok",
+    "counts": {
+      "courses": 4,
+      "knowledge_points": 217,
+      "problem_knowledge": 4978,
+      "problems": 4808,
+      "rubric_items": 380,
+      "test_cases": 6086
+    },
+    "schema": {
+      "courses": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "display",
+          "type": "TEXT",
+          "not_null": 1,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "short",
+          "type": "TEXT",
+          "not_null": 1,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "exam",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "score",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": "0",
+          "pk": 0
+        },
+        {
+          "ordinal": 5,
+          "name": "code_enabled",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": "0",
+          "pk": 0
+        },
+        {
+          "ordinal": 6,
+          "name": "verification_types",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "'[]'",
+          "pk": 0
+        },
+        {
+          "ordinal": 7,
+          "name": "knowledge_taxonomy",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "'[]'",
+          "pk": 0
+        },
+        {
+          "ordinal": 8,
+          "name": "error_examples",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "'{}'",
+          "pk": 0
+        },
+        {
+          "ordinal": 9,
+          "name": "sample_questions",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "'[]'",
+          "pk": 0
+        },
+        {
+          "ordinal": 10,
+          "name": "answer_format",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 11,
+          "name": "sort_order",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": "0",
+          "pk": 0
+        },
+        {
+          "ordinal": 12,
+          "name": "enabled",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": "1",
+          "pk": 0
+        }
+      ],
+      "knowledge_points": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "course_id",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "chapter",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "name",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "description",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 5,
+          "name": "difficulty",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "problem_knowledge": [
+        {
+          "ordinal": 0,
+          "name": "problem_id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 1,
+          "name": "knowledge_id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "weight",
+          "type": "REAL",
+          "not_null": 0,
+          "default": "1.0",
+          "pk": 0
+        }
+      ],
+      "problems": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "course_id",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "source",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "type",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "stem",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 5,
+          "name": "difficulty",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 6,
+          "name": "answer",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 7,
+          "name": "verification_type",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 8,
+          "name": "func_name",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 9,
+          "name": "ref_code",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 10,
+          "name": "knowledge",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 11,
+          "name": "hint",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        },
+        {
+          "ordinal": 12,
+          "name": "citations",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": "''",
+          "pk": 0
+        }
+      ],
+      "rubric_items": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "problem_id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "description",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "score",
+          "type": "REAL",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "expected_evidence",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "test_cases": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "problem_id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "input",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "expected_output",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "hidden",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": "0",
+          "pk": 0
+        }
+      ]
+    },
+    "problems_by_course": {
+      "co": 1169,
+      "ds-algo": 2138,
+      "net": 935,
+      "os": 566
+    },
+    "problems_by_source": {
+      "generated": 1700,
+      "local-demo-408-mock": 14,
+      "past-paper": 39,
+      "past-paper:2021年12月组原A": 14,
+      "past-paper:2021年1月组原A": 69,
+      "past-paper:2023年组原A": 16,
+      "past-paper:组原2016年卷": 22,
+      "past-paper:组原2020年卷_部分": 22,
+      "past-paper:组原2021年卷": 19,
+      "past-paper:组原2023年卷": 15,
+      "past-paper:计算机组成原理2023试卷": 16,
+      "seed": 16,
+      "seed-practice": 2711,
+      "习题-第一章课后作业答案-2024": 11,
+      "习题-第三章作业答案": 8,
+      "习题-第二章作业答案-2024": 7,
+      "习题-第五章部分作业-zyq": 6,
+      "习题-第六章部分习题答案-zyq": 12,
+      "习题-第四章作业答案-zyq": 1,
+      "习题-综合练习2015级": 8,
+      "习题-综合练习2016级": 20,
+      "习题-综合练习2017级": 26,
+      "习题-综合练习2018": 36
+    },
+    "verification_types": {
+      "numeric": 3024,
+      "rule": 270,
+      "unit_test": 1514
+    },
+    "generated_with_citations": 1530
+  },
+  "rag": {
+    "integrity": "ok",
+    "counts": {
+      "build_meta": 4,
+      "chunk_hashes": 2646,
+      "chunks": 2646,
+      "chunks_config": 1,
+      "chunks_content": 2646,
+      "chunks_data": 2349,
+      "chunks_docsize": 2646,
+      "chunks_idx": 2296
+    },
+    "schema": {
+      "build_meta": [
+        {
+          "ordinal": 0,
+          "name": "key",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "value",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunk_hashes": [
+        {
+          "ordinal": 0,
+          "name": "hash",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "course",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "source",
+          "type": "TEXT",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "chunk_index",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks": [
+        {
+          "ordinal": 0,
+          "name": "text",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 1,
+          "name": "course",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "doc_type",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "source",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "title_path",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 5,
+          "name": "page_start",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 6,
+          "name": "page_end",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 7,
+          "name": "chunk_index",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks_config": [
+        {
+          "ordinal": 0,
+          "name": "k",
+          "type": "",
+          "not_null": 1,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "v",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks_content": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "c0",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 2,
+          "name": "c1",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 3,
+          "name": "c2",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 4,
+          "name": "c3",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 5,
+          "name": "c4",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 6,
+          "name": "c5",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 7,
+          "name": "c6",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        },
+        {
+          "ordinal": 8,
+          "name": "c7",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks_data": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "block",
+          "type": "BLOB",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks_docsize": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "not_null": 0,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "sz",
+          "type": "BLOB",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ],
+      "chunks_idx": [
+        {
+          "ordinal": 0,
+          "name": "segid",
+          "type": "",
+          "not_null": 1,
+          "default": null,
+          "pk": 1
+        },
+        {
+          "ordinal": 1,
+          "name": "term",
+          "type": "",
+          "not_null": 1,
+          "default": null,
+          "pk": 2
+        },
+        {
+          "ordinal": 2,
+          "name": "pgno",
+          "type": "",
+          "not_null": 0,
+          "default": null,
+          "pk": 0
+        }
+      ]
+    },
+    "chunks_by_course": {
+      "co": 361,
+      "ds-algo": 1767,
+      "net": 414,
+      "os": 104
+    },
+    "chunks_without_pages": 0
+  },
+  "safe_runtime_settings": {
+    "CL_LLM_WORKHORSE_MODEL": "deepseek-v3",
+    "CL_LLM_EXPERT_MODEL": "qwen3-max",
+    "CL_LLM_REASONER_MODEL": "deepseek-r1",
+    "CL_RAG_MODE": "fts5"
+  },
+  "privacy_note": "Evaluation content snapshot; instance identities and personal-table inventory omitted."
+}

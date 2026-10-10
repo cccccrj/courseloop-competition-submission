@@ -1,0 +1,42 @@
+# CourseLoop 后端。放到 /etc/systemd/system/courseloop-api.service
+#
+#   systemctl daemon-reload
+#   systemctl enable --now courseloop-api
+#   journalctl -u courseloop-api -f
+#
+# 改 User/WorkingDirectory 之外通常不用动。
+[Unit]
+Description=CourseLoop API (FastAPI/uvicorn)
+After=network-online.target
+Wants=network-online.target
+# 起不来时不要疯狂重启刷满日志盘。
+# 这两个键在 [Unit] 段，不在 [Service] —— 放错段 systemd 只会打一条
+# "Unknown key name ... ignoring" 然后照常跑，限制静默失效。
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=courseloop
+Group=courseloop
+WorkingDirectory=/opt/courseloop
+# .env 由 pydantic-settings 自己读，这里不用 EnvironmentFile —— 两处读同一份
+# 配置会让"改了没生效"变得极难查（到底是谁读到的那一份）。
+ExecStart=/opt/courseloop/.venv/bin/python -m uvicorn backend.api.main:app \
+    --host 127.0.0.1 --port 8000 --workers 1
+
+# workers 1 是有意的：SQLite 单写者，多进程写会撞 database is locked。
+# 要扛更多并发先换 Postgres，别先加 worker。
+
+Restart=always
+RestartSec=3
+
+# 最小权限：只允许写自己的数据目录
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/courseloop/data
+
+[Install]
+WantedBy=multi-user.target

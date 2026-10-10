@@ -1,0 +1,57 @@
+# —— 机密：绝不提交 ——
+.env
+.env.local
+.env.bak*
+*.local
+
+# —— Python ——
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+# 交接环境把虚拟环境建在仓库里（跑测试用 .venv/bin/python），几万个文件，勿入库。
+.venv/
+venv/
+
+# —— 前端 / Node ——
+node_modules/
+frontend/dist/
+frontend/.vite/
+# vue-tsc -b 的增量编译产物：每次 npm run build 都重新生成。
+# 留在工作区会让 deploy_*.sh 的「脏工作区拒发」闸门天天误报，
+# 久而久之就会有人习惯性加 --allow-dirty，闸门也就废了。
+frontend/*.tsbuildinfo
+frontend/vite.config.d.ts
+frontend/vite.config.js
+
+# —— 数据与模型（可重建，见 scripts/fetch_corpus.sh + ingest/seed）——
+# 只忽略仓库根目录的运行数据；未锚定的 data/ 会误伤 frontend/src/data/ 等源码目录。
+/data/
+/model/
+*.db
+*.sqlite
+
+# —— unsloth 运行时生成的编译缓存（自动重建，勿入库）——
+unsloth_compiled_cache/
+
+# —— 交付物打包目录（GB 级原始数据 tar，勿入库）——
+/release/
+
+# —— 日志 ——
+logs/
+*.log
+!/artifacts/evidence/**/*.log
+
+# —— 系统 / 编辑器 ——
+.DS_Store
+.vscode/
+.idea/
+
+# 比赛隔离环境、原始测试密钥、运行与打包产物
+/.private/
+/artifacts/runtime/
+/artifacts/release/
+*.db-wal
+*.db-shm
+*.bundle

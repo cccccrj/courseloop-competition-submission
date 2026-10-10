@@ -1,0 +1,276 @@
+{
+  "captured_at": "2026-10-09T09:22:54.224043+00:00",
+  "environment": "isolated single uvicorn worker, 4808-question isolated copy, no LLM load",
+  "users": 10,
+  "requested_duration_s": 60,
+  "elapsed_s": 60.13,
+  "requests": 4586,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "rps": 76.27,
+  "p50_ms": 25.89,
+  "p95_ms": 60.99,
+  "p99_ms": 85.48,
+  "max_ms": 247.41,
+  "think_time_s": 0.1,
+  "successful_writes": 917,
+  "by_endpoint": {
+    "/problems/judge": {
+      "requests": 917,
+      "p50_ms": 32.66,
+      "p95_ms": 63.98,
+      "p99_ms": 79.58
+    },
+    "/knowledge?course=os": {
+      "requests": 526,
+      "p50_ms": 11.45,
+      "p95_ms": 22.38,
+      "p99_ms": 30.01
+    },
+    "/problems?course=os": {
+      "requests": 526,
+      "p50_ms": 22.72,
+      "p95_ms": 44.56,
+      "p99_ms": 58.6
+    },
+    "/learning/center?course=os": {
+      "requests": 523,
+      "p50_ms": 37.1,
+      "p95_ms": 67.4,
+      "p99_ms": 92.58
+    },
+    "/records/mastery?course=os": {
+      "requests": 525,
+      "p50_ms": 30.11,
+      "p95_ms": 54.4,
+      "p99_ms": 86.19
+    },
+    "/practice/recommend?course=os": {
+      "requests": 525,
+      "p50_ms": 44.91,
+      "p95_ms": 79.91,
+      "p99_ms": 106.24
+    },
+    "/auth/profile": {
+      "requests": 523,
+      "p50_ms": 12.92,
+      "p95_ms": 25.87,
+      "p99_ms": 32.98
+    },
+    "/records/errors?course=os": {
+      "requests": 521,
+      "p50_ms": 16.66,
+      "p95_ms": 36.62,
+      "p99_ms": 48.52
+    }
+  },
+  "write_reconciled": true,
+  "db_integrity": "ok",
+  "acceptance": {
+    "failure_rate_max": 0.01,
+    "p95_ms_max": 2000,
+    "passed": true
+  },
+  "workers": [
+    {
+      "user": "competition-load-00",
+      "failures": [],
+      "status": {
+        "200": 457
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/problems/judge": 92,
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 52,
+        "/learning/center?course=os": 52,
+        "/records/mastery?course=os": 52,
+        "/practice/recommend?course=os": 52,
+        "/auth/profile": 52,
+        "/records/errors?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-01",
+      "failures": [],
+      "status": {
+        "200": 459
+      },
+      "successful_writes": 91,
+      "endpoints": {
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 53,
+        "/learning/center?course=os": 53,
+        "/records/mastery?course=os": 53,
+        "/problems/judge": 91,
+        "/practice/recommend?course=os": 52,
+        "/auth/profile": 52,
+        "/records/errors?course=os": 52
+      },
+      "persisted_attempt_delta": 91,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-02",
+      "failures": [],
+      "status": {
+        "200": 460
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/problems?course=os": 53,
+        "/learning/center?course=os": 53,
+        "/records/mastery?course=os": 53,
+        "/problems/judge": 92,
+        "/practice/recommend?course=os": 53,
+        "/auth/profile": 52,
+        "/knowledge?course=os": 52,
+        "/records/errors?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-03",
+      "failures": [],
+      "status": {
+        "200": 459
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/learning/center?course=os": 53,
+        "/records/mastery?course=os": 53,
+        "/problems/judge": 92,
+        "/practice/recommend?course=os": 53,
+        "/auth/profile": 52,
+        "/knowledge?course=os": 52,
+        "/problems?course=os": 52,
+        "/records/errors?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-04",
+      "failures": [],
+      "status": {
+        "200": 458
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/records/mastery?course=os": 53,
+        "/problems/judge": 92,
+        "/practice/recommend?course=os": 53,
+        "/auth/profile": 52,
+        "/knowledge?course=os": 52,
+        "/problems?course=os": 52,
+        "/records/errors?course=os": 52,
+        "/learning/center?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-05",
+      "failures": [],
+      "status": {
+        "200": 460
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/problems/judge": 92,
+        "/practice/recommend?course=os": 53,
+        "/auth/profile": 53,
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 53,
+        "/records/mastery?course=os": 52,
+        "/records/errors?course=os": 52,
+        "/learning/center?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-06",
+      "failures": [],
+      "status": {
+        "200": 458
+      },
+      "successful_writes": 91,
+      "endpoints": {
+        "/practice/recommend?course=os": 53,
+        "/auth/profile": 53,
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 52,
+        "/problems/judge": 91,
+        "/records/mastery?course=os": 52,
+        "/records/errors?course=os": 52,
+        "/learning/center?course=os": 52
+      },
+      "persisted_attempt_delta": 91,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-07",
+      "failures": [],
+      "status": {
+        "200": 459
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/auth/profile": 53,
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 53,
+        "/problems/judge": 92,
+        "/records/mastery?course=os": 52,
+        "/records/errors?course=os": 52,
+        "/practice/recommend?course=os": 52,
+        "/learning/center?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-08",
+      "failures": [],
+      "status": {
+        "200": 457
+      },
+      "successful_writes": 91,
+      "endpoints": {
+        "/knowledge?course=os": 53,
+        "/problems?course=os": 53,
+        "/problems/judge": 91,
+        "/records/mastery?course=os": 52,
+        "/records/errors?course=os": 52,
+        "/practice/recommend?course=os": 52,
+        "/auth/profile": 52,
+        "/learning/center?course=os": 52
+      },
+      "persisted_attempt_delta": 91,
+      "write_reconciled": true
+    },
+    {
+      "user": "competition-load-09",
+      "failures": [],
+      "status": {
+        "200": 459
+      },
+      "successful_writes": 92,
+      "endpoints": {
+        "/problems?course=os": 53,
+        "/problems/judge": 92,
+        "/records/mastery?course=os": 53,
+        "/records/errors?course=os": 53,
+        "/practice/recommend?course=os": 52,
+        "/auth/profile": 52,
+        "/learning/center?course=os": 52,
+        "/knowledge?course=os": 52
+      },
+      "persisted_attempt_delta": 92,
+      "write_reconciled": true
+    }
+  ]
+}

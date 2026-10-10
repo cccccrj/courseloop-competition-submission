@@ -1,0 +1,477 @@
+{
+  "rounds": [
+    {
+      "environment": "isolated same synthetic student, 10 parallel clients / 20 correct answers",
+      "requests": 20,
+      "successful": 20,
+      "persisted_attempt_delta": 20,
+      "attempts_complete": true,
+      "mastery_before": 0.2618,
+      "expected_serial_mastery": 0.9646,
+      "actual_mastery": 0.9646,
+      "mastery_serial_consistent": true,
+      "method": "fresh identity per round, initial mastery .2618, 10 clients / 20 correct answers",
+      "responses": [
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "environment": "isolated same synthetic student, 10 parallel clients / 20 correct answers",
+      "requests": 20,
+      "successful": 20,
+      "persisted_attempt_delta": 20,
+      "attempts_complete": true,
+      "mastery_before": 0.2618,
+      "expected_serial_mastery": 0.9646,
+      "actual_mastery": 0.9646,
+      "mastery_serial_consistent": true,
+      "method": "fresh identity per round, initial mastery .2618, 10 clients / 20 correct answers",
+      "responses": [
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "environment": "isolated same synthetic student, 10 parallel clients / 20 correct answers",
+      "requests": 20,
+      "successful": 20,
+      "persisted_attempt_delta": 20,
+      "attempts_complete": true,
+      "mastery_before": 0.2618,
+      "expected_serial_mastery": 0.9646,
+      "actual_mastery": 0.9646,
+      "mastery_serial_consistent": true,
+      "method": "fresh identity per round, initial mastery .2618, 10 clients / 20 correct answers",
+      "responses": [
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "environment": "isolated same synthetic student, 10 parallel clients / 20 correct answers",
+      "requests": 20,
+      "successful": 20,
+      "persisted_attempt_delta": 20,
+      "attempts_complete": true,
+      "mastery_before": 0.2618,
+      "expected_serial_mastery": 0.9646,
+      "actual_mastery": 0.9646,
+      "mastery_serial_consistent": true,
+      "method": "fresh identity per round, initial mastery .2618, 10 clients / 20 correct answers",
+      "responses": [
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "environment": "isolated same synthetic student, 10 parallel clients / 20 correct answers",
+      "requests": 20,
+      "successful": 20,
+      "persisted_attempt_delta": 20,
+      "attempts_complete": true,
+      "mastery_before": 0.2618,
+      "expected_serial_mastery": 0.9646,
+      "actual_mastery": 0.9646,
+      "mastery_serial_consistent": true,
+      "method": "fresh identity per round, initial mastery .2618, 10 clients / 20 correct answers",
+      "responses": [
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        },
+        {
+          "status": 200,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "total_requests": 100,
+  "all_attempts_complete": true,
+  "all_mastery_consistent": true
+}

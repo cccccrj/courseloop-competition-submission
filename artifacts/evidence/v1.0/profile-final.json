@@ -1,0 +1,580 @@
+{
+  "scope": "isolated direct service CPU/SQLite profile; not HTTP capacity",
+  "functions": {
+    "learning_center": {
+      "mean_ms": 17.732138326391578,
+      "min_ms": 17.28199888020754,
+      "max_ms": 21.43352199345827,
+      "iterations": 20,
+      "cumulative": [
+        {
+          "function": "submission_profile.py:26:<lambda>",
+          "calls": 20,
+          "self_s": 0.00011446700000000001,
+          "cumulative_s": 0.35078279100000004
+        },
+        {
+          "function": "core_routes.py:635:learning_center",
+          "calls": 20,
+          "self_s": 0.00040684600000000004,
+          "cumulative_s": 0.35066832400000003
+        },
+        {
+          "function": "core_routes.py:644:_learning_center",
+          "calls": 20,
+          "self_s": 0.0010227460000000002,
+          "cumulative_s": 0.33105563200000004
+        },
+        {
+          "function": "profile.py:67:build_profile",
+          "calls": 20,
+          "self_s": 0.018207217,
+          "cumulative_s": 0.257858925
+        },
+        {
+          "function": "~:0:<method 'execute' of 'sqlite3.Connection' objects>",
+          "calls": 200,
+          "self_s": 0.24978306200000003,
+          "cumulative_s": 0.24978306200000003
+        },
+        {
+          "function": "db.py:1368:knowledge_stats",
+          "calls": 20,
+          "self_s": 0.000334004,
+          "cumulative_s": 0.200717635
+        },
+        {
+          "function": "db.py:1832:learning_activity_summary",
+          "calls": 20,
+          "self_s": 0.000860815,
+          "cumulative_s": 0.059473316000000005
+        },
+        {
+          "function": "~:0:<built-in method builtins.next>",
+          "calls": 440,
+          "self_s": 0.0010447100000000001,
+          "cumulative_s": 0.021113309
+        },
+        {
+          "function": "db.py:47:get_conn",
+          "calls": 360,
+          "self_s": 0.001791388,
+          "cumulative_s": 0.019462002000000003
+        },
+        {
+          "function": "db.py:80:connection_scope",
+          "calls": 40,
+          "self_s": 0.00030410500000000004,
+          "cumulative_s": 0.018733699
+        },
+        {
+          "function": "~:0:<method 'sort' of 'list' objects>",
+          "calls": 20,
+          "self_s": 0.00100426,
+          "cumulative_s": 0.016319786
+        },
+        {
+          "function": "spaced_review.py:49:rank_key",
+          "calls": 800,
+          "self_s": 0.006559528,
+          "cumulative_s": 0.015315526000000001
+        },
+        {
+          "function": "contextlib.py:130:__enter__",
+          "calls": 220,
+          "self_s": 0.0005336620000000001,
+          "cumulative_s": 0.013020336
+        },
+        {
+          "function": "db.py:34:_owned_conn",
+          "calls": 40,
+          "self_s": 0.000140328,
+          "cumulative_s": 0.010361366
+        },
+        {
+          "function": "~:0:<method 'fetchall' of 'sqlite3.Cursor' objects>",
+          "calls": 80,
+          "self_s": 0.009297332,
+          "cumulative_s": 0.009297332
+        },
+        {
+          "function": "spaced_review.py:34:priority",
+          "calls": 1600,
+          "self_s": 0.005395268,
+          "cumulative_s": 0.009157644000000001
+        },
+        {
+          "function": "contextlib.py:139:__exit__",
+          "calls": 220,
+          "self_s": 0.00069601,
+          "cumulative_s": 0.009097835
+        },
+        {
+          "function": "~:0:<method 'get' of 'dict' objects>",
+          "calls": 8100,
+          "self_s": 0.0063346620000000005,
+          "cumulative_s": 0.0063346620000000005
+        },
+        {
+          "function": "~:0:<method 'close' of 'sqlite3.Connection' objects>",
+          "calls": 20,
+          "self_s": 0.00619524,
+          "cumulative_s": 0.00619524
+        },
+        {
+          "function": "posixpath.py:389:realpath",
+          "calls": 20,
+          "self_s": 0.000150139,
+          "cumulative_s": 0.004960516
+        },
+        {
+          "function": "~:0:<built-in method builtins.max>",
+          "calls": 2440,
+          "self_s": 0.003630051,
+          "cumulative_s": 0.004535695
+        },
+        {
+          "function": "~:0:<built-in method builtins.round>",
+          "calls": 3200,
+          "self_s": 0.004387942000000001,
+          "cumulative_s": 0.004387942000000001
+        },
+        {
+          "function": "db.py:1376:<listcomp>",
+          "calls": 20,
+          "self_s": 0.004314036,
+          "cumulative_s": 0.004314036
+        },
+        {
+          "function": "db.py:27:_connect",
+          "calls": 20,
+          "self_s": 0.000234984,
+          "cumulative_s": 0.004009208
+        },
+        {
+          "function": "review_service.py:167:get_active",
+          "calls": 20,
+          "self_s": 0.00016504800000000002,
+          "cumulative_s": 0.003985566
+        }
+      ]
+    },
+    "practice_recommend": {
+      "mean_ms": 17.87832477129996,
+      "min_ms": 16.78218226879835,
+      "max_ms": 18.33013165742159,
+      "iterations": 20,
+      "cumulative": [
+        {
+          "function": "submission_profile.py:27:<lambda>",
+          "calls": 20,
+          "self_s": 9.0655e-05,
+          "cumulative_s": 0.353711865
+        },
+        {
+          "function": "core_routes.py:564:practice_recommend",
+          "calls": 20,
+          "self_s": 0.000220601,
+          "cumulative_s": 0.35362121
+        },
+        {
+          "function": "core_routes.py:573:_practice_recommend",
+          "calls": 20,
+          "self_s": 0.001984371,
+          "cumulative_s": 0.334958645
+        },
+        {
+          "function": "profile.py:67:build_profile",
+          "calls": 20,
+          "self_s": 0.018376535000000003,
+          "cumulative_s": 0.253875997
+        },
+        {
+          "function": "~:0:<method 'execute' of 'sqlite3.Connection' objects>",
+          "calls": 140,
+          "self_s": 0.253273313,
+          "cumulative_s": 0.253273313
+        },
+        {
+          "function": "db.py:1368:knowledge_stats",
+          "calls": 20,
+          "self_s": 0.000325161,
+          "cumulative_s": 0.196752286
+        },
+        {
+          "function": "db.py:1136:pick_practice_problems",
+          "calls": 100,
+          "self_s": 0.0015420660000000001,
+          "cumulative_s": 0.077234488
+        },
+        {
+          "function": "~:0:<built-in method builtins.next>",
+          "calls": 400,
+          "self_s": 0.0009156720000000001,
+          "cumulative_s": 0.020003669
+        },
+        {
+          "function": "db.py:47:get_conn",
+          "calls": 320,
+          "self_s": 0.001588456,
+          "cumulative_s": 0.018485559000000002
+        },
+        {
+          "function": "db.py:80:connection_scope",
+          "calls": 40,
+          "self_s": 0.000277988,
+          "cumulative_s": 0.017981177
+        },
+        {
+          "function": "~:0:<method 'sort' of 'list' objects>",
+          "calls": 20,
+          "self_s": 0.001025413,
+          "cumulative_s": 0.016118736
+        },
+        {
+          "function": "spaced_review.py:49:rank_key",
+          "calls": 800,
+          "self_s": 0.0063505440000000005,
+          "cumulative_s": 0.015093323
+        },
+        {
+          "function": "contextlib.py:130:__enter__",
+          "calls": 200,
+          "self_s": 0.000465165,
+          "cumulative_s": 0.012475218000000001
+        },
+        {
+          "function": "~:0:<method 'fetchall' of 'sqlite3.Cursor' objects>",
+          "calls": 120,
+          "self_s": 0.011942119000000001,
+          "cumulative_s": 0.011942119000000001
+        },
+        {
+          "function": "db.py:34:_owned_conn",
+          "calls": 40,
+          "self_s": 0.000135047,
+          "cumulative_s": 0.009763260000000001
+        },
+        {
+          "function": "spaced_review.py:34:priority",
+          "calls": 1600,
+          "self_s": 0.005392768,
+          "cumulative_s": 0.009130182
+        },
+        {
+          "function": "contextlib.py:139:__exit__",
+          "calls": 200,
+          "self_s": 0.0006907370000000001,
+          "cumulative_s": 0.008453856000000001
+        },
+        {
+          "function": "~:0:<method 'close' of 'sqlite3.Connection' objects>",
+          "calls": 20,
+          "self_s": 0.005747465,
+          "cumulative_s": 0.005747465
+        },
+        {
+          "function": "~:0:<method 'get' of 'dict' objects>",
+          "calls": 7220,
+          "self_s": 0.005641683000000001,
+          "cumulative_s": 0.005641683000000001
+        },
+        {
+          "function": "posixpath.py:389:realpath",
+          "calls": 20,
+          "self_s": 0.000154313,
+          "cumulative_s": 0.004878212000000001
+        },
+        {
+          "function": "~:0:<built-in method builtins.max>",
+          "calls": 2560,
+          "self_s": 0.00367152,
+          "cumulative_s": 0.004587428
+        },
+        {
+          "function": "~:0:<built-in method builtins.round>",
+          "calls": 3200,
+          "self_s": 0.004407787000000001,
+          "cumulative_s": 0.004407787000000001
+        },
+        {
+          "function": "db.py:1376:<listcomp>",
+          "calls": 20,
+          "self_s": 0.0043572640000000004,
+          "cumulative_s": 0.0043572640000000004
+        },
+        {
+          "function": "db.py:27:_connect",
+          "calls": 20,
+          "self_s": 0.000219337,
+          "cumulative_s": 0.0038631940000000003
+        },
+        {
+          "function": "posixpath.py:398:_joinrealpath",
+          "calls": 20,
+          "self_s": 0.000898949,
+          "cumulative_s": 0.003816555
+        }
+      ]
+    }
+  },
+  "includes_synthetic_writes": false,
+  "counts": {
+    "problems": 4808,
+    "practice_attempts": 18197,
+    "knowledge_points": 217
+  },
+  "knowledge_stats_query_plan": [
+    {
+      "id": 3,
+      "parent": 0,
+      "notused": 0,
+      "detail": "MATERIALIZE att"
+    },
+    {
+      "id": 6,
+      "parent": 3,
+      "notused": 0,
+      "detail": "MATERIALIZE pk"
+    },
+    {
+      "id": 11,
+      "parent": 6,
+      "notused": 0,
+      "detail": "SEARCH p USING COVERING INDEX idx_problems_course_knowledge (course_id=?)"
+    },
+    {
+      "id": 17,
+      "parent": 6,
+      "notused": 0,
+      "detail": "SEARCH l USING COVERING INDEX idx_problem_knowledge_problem (problem_id=?)"
+    },
+    {
+      "id": 23,
+      "parent": 6,
+      "notused": 0,
+      "detail": "SEARCH knowledge_points USING COVERING INDEX idx_knowledge_course_name (course_id=? AND name=?)"
+    },
+    {
+      "id": 57,
+      "parent": 3,
+      "notused": 0,
+      "detail": "SEARCH a USING INDEX idx_attempts_user_recent (username=?)"
+    },
+    {
+      "id": 73,
+      "parent": 3,
+      "notused": 0,
+      "detail": "SEARCH pk USING AUTOMATIC COVERING INDEX (problem_id=?)"
+    },
+    {
+      "id": 89,
+      "parent": 3,
+      "notused": 0,
+      "detail": "USE TEMP B-TREE FOR GROUP BY"
+    },
+    {
+      "id": 170,
+      "parent": 0,
+      "notused": 0,
+      "detail": "MATERIALIZE err"
+    },
+    {
+      "id": 179,
+      "parent": 170,
+      "notused": 0,
+      "detail": "SEARCH e USING INDEX idx_errors_user_knowledge (username=?)"
+    },
+    {
+      "id": 186,
+      "parent": 170,
+      "notused": 0,
+      "detail": "SEARCH knowledge_points USING INTEGER PRIMARY KEY (rowid=?)"
+    },
+    {
+      "id": 235,
+      "parent": 0,
+      "notused": 0,
+      "detail": "MATERIALIZE bank"
+    },
+    {
+      "id": 238,
+      "parent": 235,
+      "notused": 0,
+      "detail": "MATERIALIZE kp"
+    },
+    {
+      "id": 242,
+      "parent": 238,
+      "notused": 0,
+      "detail": "SEARCH knowledge_points USING INDEX idx_knowledge_course_name (course_id=?)"
+    },
+    {
+      "id": 265,
+      "parent": 235,
+      "notused": 0,
+      "detail": "SEARCH p USING COVERING INDEX idx_problems_course_knowledge (course_id=?)"
+    },
+    {
+      "id": 271,
+      "parent": 235,
+      "notused": 0,
+      "detail": "SEARCH l USING COVERING INDEX idx_problem_knowledge_problem (problem_id=?)"
+    },
+    {
+      "id": 277,
+      "parent": 235,
+      "notused": 0,
+      "detail": "SCAN k2"
+    },
+    {
+      "id": 284,
+      "parent": 235,
+      "notused": 0,
+      "detail": "USE TEMP B-TREE FOR GROUP BY"
+    },
+    {
+      "id": 341,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SEARCH knowledge_points USING INDEX idx_knowledge_course_name (course_id=?)"
+    },
+    {
+      "id": 348,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SEARCH m USING INDEX sqlite_autoindex_mastery_records_1 (username=? AND knowledge_id=?)"
+    },
+    {
+      "id": 358,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SCAN att"
+    },
+    {
+      "id": 365,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SEARCH la USING INTEGER PRIMARY KEY (rowid=?)"
+    },
+    {
+      "id": 381,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SEARCH err USING AUTOMATIC COVERING INDEX (kid=?)"
+    },
+    {
+      "id": 387,
+      "parent": 0,
+      "notused": 0,
+      "detail": "SCAN bank"
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_assignments_lookup",
+      "tbl_name": "assignments"
+    },
+    {
+      "name": "idx_attempts_user_duration",
+      "tbl_name": "practice_attempts"
+    },
+    {
+      "name": "idx_attempts_user_knowledge",
+      "tbl_name": "practice_attempts"
+    },
+    {
+      "name": "idx_attempts_user_problem",
+      "tbl_name": "practice_attempts"
+    },
+    {
+      "name": "idx_attempts_user_recent",
+      "tbl_name": "practice_attempts"
+    },
+    {
+      "name": "idx_dialog_session",
+      "tbl_name": "dialog_turns"
+    },
+    {
+      "name": "idx_errors_user_knowledge",
+      "tbl_name": "error_records"
+    },
+    {
+      "name": "idx_ingest_jobs_created",
+      "tbl_name": "ingest_jobs"
+    },
+    {
+      "name": "idx_knowledge_course_name",
+      "tbl_name": "knowledge_points"
+    },
+    {
+      "name": "idx_mastery_snapshots_lookup",
+      "tbl_name": "mastery_snapshots"
+    },
+    {
+      "name": "idx_problem_knowledge_knowledge",
+      "tbl_name": "problem_knowledge"
+    },
+    {
+      "name": "idx_problem_knowledge_problem",
+      "tbl_name": "problem_knowledge"
+    },
+    {
+      "name": "idx_problems_course_knowledge",
+      "tbl_name": "problems"
+    },
+    {
+      "name": "idx_review_requests_status",
+      "tbl_name": "review_requests"
+    },
+    {
+      "name": "idx_rubric_problem",
+      "tbl_name": "rubric_items"
+    },
+    {
+      "name": "idx_sessions_user_course",
+      "tbl_name": "learning_sessions"
+    },
+    {
+      "name": "idx_test_cases_problem",
+      "tbl_name": "test_cases"
+    },
+    {
+      "name": "idx_tutor_snapshots_sid",
+      "tbl_name": "tutor_snapshots"
+    },
+    {
+      "name": "sqlite_autoindex_app_settings_1",
+      "tbl_name": "app_settings"
+    },
+    {
+      "name": "sqlite_autoindex_courses_1",
+      "tbl_name": "courses"
+    },
+    {
+      "name": "sqlite_autoindex_mastery_records_1",
+      "tbl_name": "mastery_records"
+    },
+    {
+      "name": "sqlite_autoindex_review_task_attempts_1",
+      "tbl_name": "review_task_attempts"
+    },
+    {
+      "name": "sqlite_autoindex_study_budget_exceptions_1",
+      "tbl_name": "study_budget_exceptions"
+    },
+    {
+      "name": "sqlite_autoindex_study_budgets_1",
+      "tbl_name": "study_budgets"
+    },
+    {
+      "name": "sqlite_autoindex_users_1",
+      "tbl_name": "users"
+    }
+  ],
+  "loadavg": [
+    0.9716796875,
+    1.9833984375,
+    1.92822265625
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "scope": "CPU deterministic algorithm regression, not educational efficacy",
+  "original_code_baseline": {
+    "total": 12,
+    "passed": 12,
+    "cases": [
+      {
+        "function": "valid_parentheses",
+        "passed": true,
+        "test_cases": 4,
+        "ms": 99.99
+      },
+      {
+        "function": "eval_rpn",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 90.31
+      },
+      {
+        "function": "daily_temperatures",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 94.01
+      },
+      {
+        "function": "validate_stack",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 35.05
+      },
+      {
+        "function": "tree_max_depth",
+        "passed": true,
+        "test_cases": 3,
+        "ms": 97.8
+      },
+      {
+        "function": "inorder",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 170.21
+      },
+      {
+        "function": "count_leaves",
+        "passed": true,
+        "test_cases": 3,
+        "ms": 35.85
+      },
+      {
+        "function": "is_balanced",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 88.57
+      },
+      {
+        "function": "quick_sort",
+        "passed": true,
+        "test_cases": 3,
+        "ms": 174.9
+      },
+      {
+        "function": "merge_two_sorted",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 35.38
+      },
+      {
+        "function": "kth_largest",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 162.47
+      },
+      {
+        "function": "count_inversions",
+        "passed": true,
+        "test_cases": 2,
+        "ms": 29.95
+      }
+    ]
+  },
+  "canonical_self_consistency": {
+    "total": 20,
+    "passed": 20,
+    "undetermined": 0,
+    "failed": 0,
+    "caveat": "uses stored gold; measures representation consistency, NOT gold correctness or model accuracy",
+    "exceptions": []
+  },
+  "mastery_invariants": {
+    "total": 4,
+    "passed": 4
+  },
+  "retrieval_smoke": {
+    "total": 4,
+    "nonempty": 4,
+    "cases": [
+      {
+        "course": "ds-algo",
+        "query": "栈与队列",
+        "count": 1,
+        "ms": 4.71,
+        "all_course_matched": true,
+        "sources": [
+          {
+            "source": "原创演示讲义",
+            "title_path": "原创演示讲义",
+            "page_start": 0,
+            "page_end": 0
+          }
+        ]
+      },
+      {
+        "course": "co",
+        "query": "Cache",
+        "count": 1,
+        "ms": 61.7,
+        "all_course_matched": true,
+        "sources": [
+          {
+            "source": "原创演示讲义",
+            "title_path": "原创演示讲义",
+            "page_start": 0,
+            "page_end": 0
+          }
+        ]
+      },
+      {
+        "course": "os",
+        "query": "LRU",
+        "count": 1,
+        "ms": 1.41,
+        "all_course_matched": true,
+        "sources": [
+          {
+            "source": "原创演示讲义",
+            "title_path": "原创演示讲义",
+            "page_start": 0,
+            "page_end": 0
+          }
+        ]
+      },
+      {
+        "course": "net",
+        "query": "TCP 三次握手",
+        "count": 1,
+        "ms": 1.53,
+        "all_course_matched": true,
+        "sources": [
+          {
+            "source": "原创演示讲义",
+            "title_path": "原创演示讲义",
+            "page_start": 0,
+            "page_end": 0
+          }
+        ]
+      }
+    ],
+    "caveat": "4-query smoke, NOT independent retrieval relevance accuracy"
+  }
+}

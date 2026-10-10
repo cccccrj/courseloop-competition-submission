@@ -1,0 +1,37 @@
+{
+  "version": "v1.0",
+  "assets": [
+    {
+      "filename": "CourseLoop-V1.0-presentation.pptx",
+      "kind": "presentation",
+      "original_filename": "教育.pptx",
+      "bytes": 77500787,
+      "sha256": "127ebabb6d5f5682953338ad92923c1ddee517f91552efd3515985432b2b3d73",
+      "content_unchanged": true,
+      "owner_confirmed_final": true,
+      "slides": 33
+    },
+    {
+      "filename": "CourseLoop-V1.0-demo.mp4",
+      "kind": "demo_video",
+      "original_filename": "CourseLoop_华泰杯_视频.mp4",
+      "bytes": 144868884,
+      "sha256": "13eae1b2128dfb2162183dd6479dfdad515d093f3eb4a51d9c9913d3b5d71c0c",
+      "content_unchanged": true,
+      "owner_confirmed_final": true,
+      "duration_seconds": 279.175,
+      "full_decode_passed": true
+    }
+  ],
+  "approved_visible_information": {
+    "presentation": [
+      "platform URL",
+      "contact phone"
+    ],
+    "demo_video": [
+      "browser address bar and platform URL"
+    ]
+  },
+  "publication_authorized": false,
+  "review_scope": "Owner-selected final content; PPT structural/text checks, video duration/full decoding and sampled frames. This does not represent a new application test or exhaustive frame/audio review."
+}

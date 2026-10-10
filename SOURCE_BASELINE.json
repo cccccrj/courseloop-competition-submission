@@ -1,0 +1,18 @@
+{
+  "baseline": "c171ac542fadb35db92586bd1e5a87c5602603fb",
+  "checked_files": 258,
+  "changed_baseline_files": [
+    "backend/core/db.py",
+    "backend/api/core_routes.py",
+    "backend/agents/tutor_graph.py",
+    "backend/core/config.py",
+    "backend/core/llm.py",
+    "backend/agents/photo_grader.py",
+    "tests/test_mock_exam.py",
+    "tests/test_review_loop.py"
+  ],
+  "missing_files": [],
+  "source_policy": "Frozen V1.0 source snapshot; historical experiment revisions remain in their evidence records",
+  "deployment_policy": "Deployment credentials and operational change records are managed separately",
+  "submission_only_business_fix": "Schedule-time solver capture; atomic answer/mastery writeback; shared transactional connection; query indexes and materialized course scope; bounded helper connections with separate atomic writer lane; synchronous request connection reuse; WAL initialization"
+}

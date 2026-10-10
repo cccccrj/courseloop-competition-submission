@@ -1,0 +1,415 @@
+{
+  "captured_at": "2026-10-09T12:04:50.558570+00:00",
+  "environment": "http://127.0.0.1:18080/api",
+  "mode": "actual local GPU model application SSE; separate from fixed-length GPU benchmark",
+  "cases": [
+    {
+      "course": "ds-algo",
+      "input": "简要解释栈与队列的区别，各给一个应用场景。",
+      "events": [
+        {
+          "type": "session",
+          "id": 3
+        },
+        {
+          "type": "citation",
+          "index": 1,
+          "source": "原创演示讲义",
+          "title_path": "原创演示讲义",
+          "page_start": 0,
+          "page_end": 0,
+          "doc_type": "courseware",
+          "excerpt": "原创演示讲义：栈与队列 栈遵循后进先出（LIFO），队列遵循先进先出（FIFO）。括号匹配可以用栈；广度优先搜索使用队列。二叉搜索树中序遍历为升序。快速排序平均 O(n log n)，最坏 O(n²)。二分查找复杂度 O(log n)。"
+        },
+        {
+          "type": "token",
+          "text": "栈"
+        },
+        {
+          "type": "token",
+          "text": "和"
+        },
+        {
+          "type": "token",
+          "text": "队"
+        },
+        {
+          "type": "token",
+          "text": "列"
+        },
+        {
+          "type": "token",
+          "text": "的区别"
+        },
+        {
+          "type": "token",
+          "text": "在于"
+        },
+        {
+          "type": "token",
+          "text": "访问"
+        },
+        {
+          "type": "token",
+          "text": "顺序"
+        },
+        {
+          "type": "token",
+          "text": "："
+        },
+        {
+          "type": "token",
+          "text": "栈"
+        },
+        {
+          "type": "token",
+          "text": "是"
+        },
+        {
+          "type": "token",
+          "text": "后"
+        },
+        {
+          "type": "token",
+          "text": "进"
+        },
+        {
+          "type": "token",
+          "text": "先"
+        },
+        {
+          "type": "token",
+          "text": "出"
+        },
+        {
+          "type": "token",
+          "text": "（"
+        },
+        {
+          "type": "token",
+          "text": "L"
+        },
+        {
+          "type": "token",
+          "text": "IFO"
+        },
+        {
+          "type": "token",
+          "text": "），"
+        },
+        {
+          "type": "token",
+          "text": "队"
+        },
+        {
+          "type": "token",
+          "text": "列"
+        },
+        {
+          "type": "token",
+          "text": "是"
+        },
+        {
+          "type": "token",
+          "text": "先进"
+        },
+        {
+          "type": "token",
+          "text": "先"
+        },
+        {
+          "type": "token",
+          "text": "出"
+        },
+        {
+          "type": "token",
+          "text": "（"
+        },
+        {
+          "type": "token",
+          "text": "F"
+        },
+        {
+          "type": "token",
+          "text": "IFO"
+        },
+        {
+          "type": "token",
+          "text": "）。"
+        },
+        {
+          "type": "token",
+          "text": "栈"
+        },
+        {
+          "type": "token",
+          "text": "的应用"
+        },
+        {
+          "type": "token",
+          "text": "场景"
+        },
+        {
+          "type": "token",
+          "text": "包括"
+        },
+        {
+          "type": "token",
+          "text": "括"
+        },
+        {
+          "type": "token",
+          "text": "号"
+        },
+        {
+          "type": "token",
+          "text": "匹配"
+        },
+        {
+          "type": "token",
+          "text": "；"
+        },
+        {
+          "type": "token",
+          "text": "队"
+        },
+        {
+          "type": "token",
+          "text": "列"
+        },
+        {
+          "type": "token",
+          "text": "的应用"
+        },
+        {
+          "type": "token",
+          "text": "场景"
+        },
+        {
+          "type": "token",
+          "text": "包括"
+        },
+        {
+          "type": "token",
+          "text": "广"
+        },
+        {
+          "type": "token",
+          "text": "度"
+        },
+        {
+          "type": "token",
+          "text": "优先"
+        },
+        {
+          "type": "token",
+          "text": "搜索"
+        },
+        {
+          "type": "token",
+          "text": "。"
+        },
+        {
+          "type": "final",
+          "text": "栈和队列的区别在于访问顺序：栈是后进先出（LIFO），队列是先进先出（FIFO）。栈的应用场景包括括号匹配；队列的应用场景包括广度优先搜索。"
+        },
+        {
+          "type": "verify",
+          "passed": true
+        },
+        {
+          "type": "done"
+        }
+      ],
+      "first_token_ms": 390.67,
+      "total_ms": 4176.56,
+      "passed": true
+    },
+    {
+      "course": "os",
+      "input": "LRU 和 FIFO 页面置换算法有什么区别？",
+      "events": [
+        {
+          "type": "session",
+          "id": 4
+        },
+        {
+          "type": "citation",
+          "index": 1,
+          "source": "原创演示讲义",
+          "title_path": "原创演示讲义",
+          "page_start": 0,
+          "page_end": 0,
+          "doc_type": "courseware",
+          "excerpt": "原创演示讲义：操作系统 同一进程的线程共享进程地址空间，但有独立的栈和程序计数器。死锁必要条件：互斥、请求并保持、不剥夺、循环等待。LRU 页面置换淘汰最近最少使用页面；FIFO 淘汰最早装入页面。缺页表示所需页不在物理内存中。时间片轮转兼顾交互响应和公平性。"
+        },
+        {
+          "type": "token",
+          "text": "LR"
+        },
+        {
+          "type": "token",
+          "text": "U"
+        },
+        {
+          "type": "token",
+          "text": " 和"
+        },
+        {
+          "type": "token",
+          "text": " FIFO"
+        },
+        {
+          "type": "token",
+          "text": " 的"
+        },
+        {
+          "type": "token",
+          "text": "区别"
+        },
+        {
+          "type": "token",
+          "text": "在于"
+        },
+        {
+          "type": "token",
+          "text": "淘汰"
+        },
+        {
+          "type": "token",
+          "text": "策略"
+        },
+        {
+          "type": "token",
+          "text": "不同"
+        },
+        {
+          "type": "token",
+          "text": "："
+        },
+        {
+          "type": "token",
+          "text": "LR"
+        },
+        {
+          "type": "token",
+          "text": "U"
+        },
+        {
+          "type": "token",
+          "text": " 淘"
+        },
+        {
+          "type": "token",
+          "text": "汰"
+        },
+        {
+          "type": "token",
+          "text": "**"
+        },
+        {
+          "type": "token",
+          "text": "最近"
+        },
+        {
+          "type": "token",
+          "text": "最少"
+        },
+        {
+          "type": "token",
+          "text": "使用"
+        },
+        {
+          "type": "token",
+          "text": "**"
+        },
+        {
+          "type": "token",
+          "text": "的"
+        },
+        {
+          "type": "token",
+          "text": "页面"
+        },
+        {
+          "type": "token",
+          "text": "，"
+        },
+        {
+          "type": "token",
+          "text": "F"
+        },
+        {
+          "type": "token",
+          "text": "IFO"
+        },
+        {
+          "type": "token",
+          "text": " 淘"
+        },
+        {
+          "type": "token",
+          "text": "汰"
+        },
+        {
+          "type": "token",
+          "text": "**"
+        },
+        {
+          "type": "token",
+          "text": "最早"
+        },
+        {
+          "type": "token",
+          "text": "装"
+        },
+        {
+          "type": "token",
+          "text": "入"
+        },
+        {
+          "type": "token",
+          "text": "**"
+        },
+        {
+          "type": "token",
+          "text": "的"
+        },
+        {
+          "type": "token",
+          "text": "页面"
+        },
+        {
+          "type": "token",
+          "text": " ["
+        },
+        {
+          "type": "token",
+          "text": "1"
+        },
+        {
+          "type": "token",
+          "text": "]"
+        },
+        {
+          "type": "token",
+          "text": "。"
+        },
+        {
+          "type": "final",
+          "text": "LRU 和 FIFO 的区别在于淘汰策略不同：LRU 淘汰**最近最少使用**的页面，FIFO 淘汰**最早装入**的页面 [1]。"
+        },
+        {
+          "type": "verify",
+          "passed": true
+        },
+        {
+          "type": "done"
+        }
+      ],
+      "first_token_ms": 109.39,
+      "total_ms": 3483.83,
+      "passed": true
+    }
+  ]
+}

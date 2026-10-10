@@ -1,0 +1,807 @@
+/* CourseLoop 设计系统 · 令牌
+   三档主题，全部走同一套令牌名，组件里不出现字面色值：
+
+     :root                      日间 —— 深靛蓝侧栏 + 白底内容区（默认，裸值即生效）
+     :root[data-theme="sepia"]  护眼 —— 米黄纸感，深棕木色侧栏，无冷调发光
+     :root[data-theme="night"]  夜间 —— 深空靛蓝影院风（原单一主题，视觉不变）
+
+   为什么默认档写成裸值而不是 [data-theme="day"]：JS 没跑起来、localStorage 被禁、
+   或者内联脚本挂了的时候，页面仍然是一个完整可读的日间主题，而不是无样式白屏。
+
+   ── 两条容易踩的约定 ──
+
+   1. 阶梯命名（brand-50/100/200 … 700）的语义是"离主色的距离"，不是明暗。
+      浅色两档里数字小 = 更浅（brand-100 = #e0e7ff），夜间档里数字小 = 更深
+      （brand-100 = #312e81）。三档下它的用途都一样：低调的背景填充色
+      （.choice.on / .result.ok / .reexplain / 时间轴圆点外环都依赖它）。
+      别按明暗去理解这组数字。
+
+   2. 侧栏有独立的一组 --cl-nav-*，不跟 --cl-text / --cl-surface 走。
+      日间是"深蓝底白字的侧栏 + 白底深字的内容区"，两边前景正好相反；护眼同理。
+      往侧栏里加东西时用 nav 组，用错了在夜间档看不出问题、切到日间就白字压白底。 */
+
+/* ══════════════════════════════════════════════════════════
+   日间（默认）
+   ══════════════════════════════════════════════════════════ */
+:root {
+  /* 原生控件（<select> 展开的选项列表、date/number 的微调与日历、默认滚动条）
+     由浏览器自绘，CSS 管不到内部。这一行是唯一的开关，三档各自声明。 */
+  color-scheme: light;
+
+  /* ── 主色板（靛蓝 indigo → 青 cyan） ── */
+  --cl-brand: #4f46e5;
+  --cl-brand-600: #4338ca;   /* 600/700 用于文字，浅底上要比 brand 更深 */
+  --cl-brand-700: #3730a3;
+  --cl-brand-200: #c7d2fe;
+  --cl-brand-100: #e0e7ff;
+  --cl-brand-50: #eef2ff;
+  --cl-accent: #0891b2;
+  --cl-accent-soft: #06b6d4;
+  /* 这条渐变的使用点全部压着 --cl-on-brand（白字），所以取值受对比度约束，
+     不能只按"好不好看"挑：两端各自压深到白字 ≥ 4.5。三档共用同一条 ——
+     它是"主色上的白字"这一个场景，与页面底色无关。 */
+  /* 去 AI 味（第二阶段）：原先是靛蓝→青绿的斜向渐变，「紫到青」几乎是 AI 生成界面的标志色。
+     改成同一靛蓝的上下轻微明暗：还有一点体积感，但不再是一道彩色渐变。 */
+  --cl-brand-grad: linear-gradient(180deg, #5a52ec 0%, #4b43dc 100%);
+  /* 标题渐变裁字（CLPageHeader / 登录页字标），压在**页面底色**上 */
+  --cl-text-grad: linear-gradient(180deg, #1e1b4b 30%, #4338ca 100%);
+  /* 侧栏里的 CourseLoop 字标压在 --cl-nav-bg 上，与上面一条底色相反，必须分开 */
+  --cl-nav-brand-grad: linear-gradient(180deg, #ffffff 35%, #c7d2fe 100%);
+
+  /* ── 语义色 ── */
+  --cl-ok: #059669;
+  --cl-warn: #d97706;
+  --cl-err: #dc2626;
+  --cl-info: #0891b2;
+  /* 徽标底/字：浅底 + 深字，各对均 ≥ 4.5 */
+  --cl-ok-bg: #dcfce7;    --cl-ok-fg: #15803d;
+  --cl-warn-bg: #fef3c7;  --cl-warn-fg: #b45309;
+  --cl-err-bg: #fee2e2;   --cl-err-fg: #b91c1c;
+  --cl-cite-bg: #e0e7ff;  --cl-cite-fg: #4338ca;
+  /* 徽标描边：浅底上底色与卡面的明度差很小，一条同色系发丝边把胶囊形状勾出来 */
+  --cl-ok-bd: rgba(21, 128, 61, .22);
+  --cl-warn-bd: rgba(180, 83, 9, .22);
+  --cl-err-bd: rgba(185, 28, 28, .2);
+  --cl-cite-bd: rgba(67, 56, 202, .2);
+  --cl-neutral-bg: rgba(15, 23, 42, .045);
+  --cl-neutral-bd: rgba(15, 23, 42, .1);
+
+  /* ── 中性 ── */
+  --cl-bg: #ffffff;
+  --cl-surface: #ffffff;
+  --cl-surface-2: #f6f7fb;
+  --cl-surface-3: #eef1f7;
+  --cl-border: #e5e8f0;
+  --cl-border-strong: #cdd3e0;
+  --cl-text: #0f172a;
+  --cl-text-2: #4a5568;      /* 压白底 7.5 */
+  --cl-text-3: #6b7590;      /* 弱化文字，压白底 4.66 —— 已是压线值，别再调浅 */
+  --cl-text-4: #98a1b5;      /* 最弱一档，只用于纯装饰（分隔线上的说明字、水印） */
+
+  /* ── 形态 ── */
+  --cl-radius: 16px;
+  --cl-radius-sm: 11px;
+  --cl-radius-lg: 22px;
+  --cl-radius-pill: 999px;
+
+  /* ── 卡面 ──
+     令牌名沿用 glass 是历史包袱（夜间档确实是玻璃）。浅色两档里它退化成
+     "白卡 + 实描边 + 轻阴影"：半透明渐变压在白底上什么也看不出，只会让
+     卡片边界变糊。--cl-glass-hi（顶缘高光）在浅底上不成立，置 transparent。 */
+  --cl-glass: #ffffff;
+  --cl-glass-2: #f8f9fc;
+  --cl-glass-border: #e5e8f0;
+  --cl-glass-border-hover: #c3cadd;
+  --cl-glass-hi: transparent;
+  --cl-glass-shadow: 0 1px 2px rgba(15, 23, 42, .05), 0 8px 24px -12px rgba(30, 41, 99, .18);
+  --cl-blur: blur(18px) saturate(140%);
+
+  /* ── 行/内嵌块 ──
+     卡片里面还要再放行（任务行、错题条、题目列表项）。行不能再套一层 --cl-glass，
+     两层叠起来卡片和行的边界会消失。行靠"比卡面略深一点"来分层。 */
+  --cl-row: #f7f8fc;
+  --cl-row-hover: rgba(79, 70, 229, .06);
+  --cl-row-border: #e9ecf4;
+  --cl-row-border-hover: rgba(79, 70, 229, .32);
+
+  /* ── 凹槽 ──
+     输入框、答题卡格子、进度槽这类"压进表面里"的块。夜间档它比卡面更暗，
+     浅色档同理（更深的灰/米），语义都是"下沉"。 */
+  --cl-inset: #f5f6fa;
+  --cl-inset-focus: #ffffff;
+  --cl-inset-deep: #eef0f6;
+
+  /* ── 浮层 ──
+     下拉面板、图谱 tooltip。会盖住正文，底色必须近乎不透明负责遮挡，
+     模糊只负责质感。 */
+  --cl-popover: #ffffff;
+  --cl-popover-border: #dfe3ee;
+
+  /* ── 交互着色 ──
+     hover / 激活态的主色薄层。整站的"选中"语言只有这三档强度，
+     组件里别再自己调透明度，否则同一个列表里两行选中态深浅不一。 */
+  --cl-tint: rgba(79, 70, 229, .07);
+  --cl-tint-strong: rgba(79, 70, 229, .14);
+  --cl-tint-grad: linear-gradient(90deg, rgba(79, 70, 229, .13), rgba(79, 70, 229, .04));
+  --cl-tint-border: rgba(79, 70, 229, .22);
+  --cl-tint-border-strong: rgba(79, 70, 229, .42);
+
+  /* 压在 --cl-brand-grad / --cl-brand 上的前景。三档都是白，但要有名字：
+     否则下一轮改主色又得全站找 14 处 #fff。 */
+  --cl-on-brand: #ffffff;
+
+  /* ── 代码 ──
+     不再引 highlight.js 自带的主题表（那是写死的深色，data-theme 切不动），
+     语法色全部走下面这六个令牌，规则见文件末尾的 .hljs-* 段。 */
+  --cl-code-bg: #f7f8fc;
+  --cl-code-border: #e5e8f0;
+  --cl-code-inline-bg: rgba(79, 70, 229, .09);
+  --cl-code-kw: #7c3aed;
+  --cl-code-str: #0e7490;
+  --cl-code-fn: #4338ca;
+  --cl-code-num: #b45309;
+  --cl-code-attr: #0f766e;
+  --cl-code-comment: #67708a;
+
+  /* 统一焦点环。键盘可达性依赖它，别在组件里各写各的 */
+  --cl-focus: 0 0 0 4px rgba(79, 70, 229, .16);
+
+  /* ── 氛围层 ──
+     极光是会漂移的动画，装不进 background 简写，因此由 MainLayout /
+     CLAuthShell 各自铺成 fixed 图层，这里只提供配方。
+     grain 的混合模式要跟着底色换：overlay 在浅底上会把画面洗灰，
+     浅色两档用 multiply 才是"纸的纹理"。 */
+  --cl-aurora-1: rgba(6, 182, 212, .1);
+  --cl-aurora-2: rgba(99, 102, 241, .12);
+  --cl-vignette: none;
+  --cl-grain-opacity: .035;
+  --cl-grain-blend: multiply;
+  /* 颗粒：内联 feTurbulence，不引外部图 */
+  --cl-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* 场景底：MainLayout 与 CLAuthShell 各自的 fixed 底图 */
+  --cl-scene: linear-gradient(158deg, #ffffff 0%, #fafbff 52%, #f3f5fd 100%);
+  --cl-scene-auth: linear-gradient(158deg, #ffffff 0%, #f7f9ff 40%, #eef1fd 74%, #e6ebfb 100%);
+
+  /* ── 分层阴影 ── */
+  --cl-shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+  --cl-shadow: 0 4px 14px rgba(30, 41, 99, .07), 0 1px 3px rgba(15, 23, 42, .05);
+  --cl-shadow-md: 0 12px 32px -8px rgba(30, 41, 99, .16);
+  --cl-shadow-lg: 0 24px 56px -16px rgba(30, 41, 99, .22);
+  --cl-shadow-hover: var(--cl-shadow-md);
+  --cl-ring: 0 0 0 3px rgba(79, 70, 229, .22);
+  /* 辉光：夜间档是真的发光，浅色两档退化成"稍重一点的投影 + 一圈描边"。
+     浅底上加亮色光晕只会脏，不会亮。 */
+  --cl-glow: 0 1px 2px rgba(30, 27, 75, .14), 0 4px 12px -6px rgba(79, 70, 229, .28);
+  --cl-glow-cyan: 0 0 0 1px rgba(8, 145, 178, .24), 0 8px 22px -8px rgba(8, 145, 178, .3);
+  --cl-glow-ok: 0 0 0 1px rgba(5, 150, 105, .22), 0 8px 20px -8px rgba(5, 150, 105, .28);
+  --cl-glow-warn: 0 0 0 1px rgba(217, 119, 6, .22), 0 8px 20px -8px rgba(217, 119, 6, .28);
+  --cl-glow-err: 0 0 0 1px rgba(220, 38, 38, .22), 0 8px 20px -8px rgba(220, 38, 38, .28);
+
+  /* ── 方向性辉光 ──
+     两类在夜间档反复出现、浅色档必须关掉的光：
+       edge  左缘强调条的横向拖光（错题条、思考块、判定条，共 9 处）
+       dot   小圆点的光晕（eyebrow-dot、时间轴节点、进度条端点）
+     浅色两档一律 none —— 浅底上加光晕只会脏，分层改由 border-left 的实色承担。 */
+  --cl-edge-glow: none;
+  --cl-edge-glow-accent: none;
+  --cl-edge-glow-ok: none;
+  --cl-edge-glow-warn: none;
+  --cl-dot-glow: none;
+  --cl-dot-glow-brand: none;
+  --cl-dot-glow-warn: none;
+
+  --cl-font: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  --cl-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, Consolas, monospace;
+
+  /* 网格线（科技底纹）。日间压到几乎看不见 —— 用户要的是"白色背景"，
+     4% 的靛蓝网格在白底上仍读作白，只是不至于空得发慌。 */
+  --cl-grid-line: rgba(79, 70, 229, .04);
+  /* 页面底纹只保留网格，底色与光晕由 MainLayout 的 fixed 图层负责 ——
+     .content 是滚动容器，背景跟着滚会把光晕拖出重影。 */
+  --cl-page-bg:
+    linear-gradient(var(--cl-grid-line) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(90deg, var(--cl-grid-line) 1px, transparent 1px) 0 0 / 34px 34px,
+    transparent;
+
+  /* ── 语义薄染 ──
+     判定条、上传区这类"整块染一层状态色"的表面。与 --cl-*-bg 的区别是它必须
+     半透明：--cl-*-bg 是徽标用的不透明胶囊底，直接拿来当行背景会盖掉卡面的
+     渐变，让整行变成一块实色。 */
+  --cl-ok-tint: rgba(5, 150, 105, .09);
+  --cl-warn-tint: rgba(217, 119, 6, .1);
+  --cl-err-tint: rgba(220, 38, 38, .09);
+  --cl-accent-tint: rgba(8, 145, 178, .08);
+
+  /* ── 强调卡 ──
+     学习中心的 focus 卡、模考/摸底的 eyebrow 卡：比普通卡片"高一档"的表面，
+     底是主色薄染、内部再嵌一团 halo 光斑。warn 变体给"该复习了"这类冷却提示。 */
+  --cl-accent-surface: linear-gradient(135deg, #eef1fe 0%, #f8f9ff 62%);
+  --cl-accent-surface-border: #c9d0f5;
+  --cl-accent-halo: radial-gradient(circle, rgba(79, 70, 229, .1), transparent 66%);
+  --cl-accent-surface-warn: linear-gradient(135deg, #fdf3dd 0%, #fdfaf3 62%);
+  --cl-accent-surface-warn-border: #eed9a8;
+  --cl-accent-halo-warn: radial-gradient(circle, rgba(217, 119, 6, .1), transparent 66%);
+
+  /* 主按钮：扫光条 + hover 的加重投影 */
+  --cl-btn-sheen: rgba(255, 255, 255, .34);
+  --cl-btn-shadow-hover: 0 14px 30px -12px rgba(79, 70, 229, .55), 0 0 0 1px rgba(255, 255, 255, .24) inset;
+  /* autofill 的 -webkit-box-shadow 撑色法只吃不透明色，不能用半透明的 --cl-inset */
+  --cl-autofill-bg: #ffffff;
+  --cl-skeleton-base: #eef0f6;
+  /* Teaching 热力图里"无数据"格的斜线底纹 */
+  --cl-hatch: rgba(15, 23, 42, .09);
+  /* CLProgress 的渐变深端，与 --cl-warn / --cl-err 配对 */
+  --cl-warn-deep: #92400e;
+  --cl-err-deep: #991b1b;
+
+  /* ── 认证页场景 ──
+     登录/注册的构图（超大字标 + 细线 + 单张浮起的卡）按档各配一次强度。 */
+  --cl-auth-fg: #1e1b4b;
+  --cl-auth-stroke: rgba(79, 70, 229, .5);
+  --cl-auth-rule: rgba(79, 70, 229, .35);
+  --cl-auth-card-shadow: 0 30px 70px -28px rgba(30, 41, 99, .3), 0 2px 0 rgba(255, 255, 255, .6) inset;
+
+  /* ── 知识图谱 ──
+     描边走 CSS，节点填充走 JS（见 --cl-map-ramp-*）。 */
+  --cl-map-canvas: #fafbff;
+  --cl-map-edge: rgba(79, 70, 229, .22);
+  --cl-map-edge-seq: rgba(79, 70, 229, .12);
+  --cl-map-node-stroke: rgba(79, 70, 229, .4);
+  --cl-map-node-hover: #312e81;
+  --cl-map-label-halo: rgba(255, 255, 255, .9);
+
+  /* ── 导航（侧栏 + 顶栏） ──
+     见文件头第 2 条约定：这一组和页面正文的明暗是独立的。 */
+  --cl-nav-bg: linear-gradient(180deg, #1e2a5e 0%, #182248 100%);
+  --cl-nav-text: rgba(255, 255, 255, .72);        /* 压 nav-bg 7.8 */
+  --cl-nav-text-strong: #ffffff;
+  --cl-nav-text-dim: rgba(255, 255, 255, .56);    /* 压 nav-bg 5.1，分组标题/副标题 */
+  --cl-nav-border: rgba(255, 255, 255, .1);
+  --cl-nav-edge: rgba(255, 255, 255, .14);        /* 侧栏右缘那条发丝线 */
+  --cl-nav-hover: rgba(255, 255, 255, .09);
+  --cl-nav-surface: rgba(255, 255, 255, .07);     /* 侧栏里的内嵌块（用户卡片） */
+  --cl-nav-active-bg: linear-gradient(90deg, rgba(129, 140, 248, .34), rgba(129, 140, 248, .1));
+  --cl-nav-active-text: #ffffff;
+  --cl-nav-active-border: rgba(165, 180, 252, .34);
+  /* 侧栏 logomark 的节点色。单列出来是因为夜间档它一直是 --cl-brand-600
+     (#a5b4fc)，而浅色两档的 brand-600 是深靛蓝，压在深侧栏上会消失。 */
+  --cl-nav-logo: #ffffff;
+  --cl-nav-bar: #67e8f9;                          /* 选中态的竖条 */
+  --cl-nav-bar-glow: 0 0 10px 1px rgba(103, 232, 249, .7);
+  /* 侧栏专用的危险色。--cl-err 是按页面底色调的，压在深侧栏上只有 2.8，不能直接用 */
+  --cl-nav-danger: #fca5a5;
+  --cl-topbar-bg: #ffffff;
+  --cl-topbar-border: #e5e8f0;
+  --cl-topbar-edge: transparent;                  /* 顶栏底缘高光，浅底上不成立 */
+
+  /* toast 悬浮在任意页面上，自带深底 + 白字，不跟主题走 */
+  --cl-toast-bg: linear-gradient(135deg, rgba(79, 70, 229, .97), rgba(14, 116, 144, .95));
+  --cl-toast-err-bg: linear-gradient(135deg, rgba(190, 43, 43, .97), rgba(220, 38, 38, .93));
+
+  /* 原生日期控件的日历图标：浅底上默认是黑的，正好，不反色 */
+  --cl-date-icon-filter: opacity(.55);
+  --cl-date-icon-filter-hover: opacity(.9);
+
+  /* 知识图谱的五档掌握度色阶 + 未涉及节点。SVG 由 JS 绑 attribute 上色，
+     CSS 变量够不着，KnowledgeMap 会 getComputedStyle 读这六个值。 */
+  --cl-map-ramp-1: #312e81;
+  --cl-map-ramp-2: #4f46e5;
+  --cl-map-ramp-3: #6d6bf0;
+  --cl-map-ramp-4: #9ca3f7;
+  --cl-map-ramp-5: #c7d2fe;
+  --cl-map-neutral: #b6bdd0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   护眼 —— 米黄纸感
+   去掉全部冷调发光是这一档的定义，不是省事：极光、网格、青色辉光
+   在暖纸底上会显脏，而且正是"蓝光"本身。
+   ══════════════════════════════════════════════════════════ */
+:root[data-theme="sepia"] {
+  color-scheme: light;
+
+  --cl-brand: #4f46e5;
+  --cl-brand-600: #433bc7;
+  --cl-brand-700: #362f9e;
+  --cl-brand-200: #cfc9f2;
+  --cl-brand-100: #e6e1f7;
+  --cl-brand-50: #f0ece5;
+  --cl-accent: #0e7490;
+  --cl-accent-soft: #0891b2;
+  --cl-text-grad: linear-gradient(180deg, #2c241a 30%, #5b4a33 100%);
+  --cl-nav-brand-grad: linear-gradient(180deg, #fbf6ee 35%, #d9c9ae 100%);
+
+  --cl-ok: #1d7a54;
+  --cl-warn: #b45309;
+  --cl-err: #b3261e;
+  --cl-info: #0e7490;
+  --cl-ok-bg: #dfe9d8;    --cl-ok-fg: #2c6b45;
+  --cl-warn-bg: #f6e6c8;  --cl-warn-fg: #8a5209;
+  --cl-err-bg: #f3ddd6;   --cl-err-fg: #9b2c22;
+  --cl-cite-bg: #e4dfef;  --cl-cite-fg: #423a94;
+  --cl-ok-bd: rgba(44, 107, 69, .24);
+  --cl-warn-bd: rgba(138, 82, 9, .24);
+  --cl-err-bd: rgba(155, 44, 34, .22);
+  --cl-cite-bd: rgba(66, 58, 148, .22);
+  --cl-neutral-bg: rgba(59, 50, 38, .06);
+  --cl-neutral-bd: rgba(59, 50, 38, .13);
+
+  --cl-bg: #f4ece0;
+  --cl-surface: #fbf6ee;
+  --cl-surface-2: #f0e6d6;
+  --cl-surface-3: #e9ddc9;
+  --cl-border: #e0d3c0;
+  --cl-border-strong: #cbb99f;
+  --cl-text: #3b3226;
+  --cl-text-2: #5c5040;      /* 压卡面 7.2 */
+  --cl-text-3: #7a6a54;      /* 压卡面 4.85 —— 压线值，别调浅 */
+  --cl-text-4: #9c8b73;
+
+  --cl-glass: #fbf6ee;
+  --cl-glass-2: #f7f0e4;
+  --cl-glass-border: #e3d7c4;
+  --cl-glass-border-hover: #c9b699;
+  --cl-glass-hi: transparent;
+  --cl-glass-shadow: 0 1px 2px rgba(90, 70, 45, .06), 0 8px 22px -12px rgba(90, 70, 45, .22);
+  --cl-blur: blur(18px) saturate(120%);
+
+  --cl-row: #f6efe3;
+  --cl-row-hover: rgba(79, 70, 229, .07);
+  --cl-row-border: #e8dccb;
+  --cl-row-border-hover: rgba(79, 70, 229, .3);
+
+  --cl-inset: #f0e7d9;
+  --cl-inset-focus: #fdfaf5;
+  --cl-inset-deep: #e9dfcd;
+
+  --cl-popover: #fdfaf5;
+  --cl-popover-border: #ddd0bb;
+
+  --cl-tint: rgba(79, 70, 229, .08);
+  --cl-tint-strong: rgba(79, 70, 229, .15);
+  --cl-tint-grad: linear-gradient(90deg, rgba(79, 70, 229, .14), rgba(79, 70, 229, .04));
+  --cl-tint-border: rgba(79, 70, 229, .24);
+  --cl-tint-border-strong: rgba(79, 70, 229, .44);
+
+  --cl-code-bg: #f2e9db;
+  --cl-code-border: #e0d3c0;
+  --cl-code-inline-bg: rgba(79, 70, 229, .1);
+  --cl-code-kw: #6d28d9;
+  --cl-code-str: #0e718c;
+  --cl-code-fn: #3f38a8;
+  --cl-code-num: #9a4a0b;
+  --cl-code-attr: #0f6b5f;
+  --cl-code-comment: #746654;
+
+  --cl-focus: 0 0 0 4px rgba(79, 70, 229, .16);
+
+  /* 冷调氛围全关 */
+  --cl-aurora-1: transparent;
+  --cl-aurora-2: transparent;
+  --cl-vignette: none;
+  --cl-grain-opacity: .05;
+  --cl-grain-blend: multiply;
+  --cl-grid-line: transparent;
+  --cl-scene: linear-gradient(158deg, #f7f1e7 0%, #f4ece0 55%, #efe4d3 100%);
+  --cl-scene-auth: linear-gradient(158deg, #f8f2e9 0%, #f4ece0 42%, #ede0cd 76%, #e6d7c0 100%);
+
+  --cl-shadow-sm: 0 1px 2px rgba(90, 70, 45, .07);
+  --cl-shadow: 0 4px 14px rgba(90, 70, 45, .08), 0 1px 3px rgba(90, 70, 45, .06);
+  --cl-shadow-md: 0 12px 30px -8px rgba(90, 70, 45, .18);
+  --cl-shadow-lg: 0 24px 52px -16px rgba(90, 70, 45, .24);
+  --cl-ring: 0 0 0 3px rgba(79, 70, 229, .2);
+  /* 辉光在这一档一律降到"一圈描边 + 一点投影"，不发光 */
+  --cl-glow: 0 1px 2px rgba(60, 45, 25, .14), 0 4px 12px -6px rgba(90, 70, 45, .24);
+  --cl-glow-cyan: 0 0 0 1px rgba(14, 116, 144, .26), 0 6px 16px -8px rgba(90, 70, 45, .26);
+  --cl-glow-ok: 0 0 0 1px rgba(29, 122, 84, .24), 0 6px 16px -8px rgba(90, 70, 45, .24);
+  --cl-glow-warn: 0 0 0 1px rgba(180, 83, 9, .24), 0 6px 16px -8px rgba(90, 70, 45, .24);
+  --cl-glow-err: 0 0 0 1px rgba(179, 38, 30, .24), 0 6px 16px -8px rgba(90, 70, 45, .24);
+
+  /* ── 方向性辉光 ──
+     两类在夜间档反复出现、浅色档必须关掉的光：
+       edge  左缘强调条的横向拖光（错题条、思考块、判定条，共 9 处）
+       dot   小圆点的光晕（eyebrow-dot、时间轴节点、进度条端点）
+     浅色两档一律 none —— 浅底上加光晕只会脏，分层改由 border-left 的实色承担。 */
+  --cl-edge-glow: none;
+  --cl-edge-glow-accent: none;
+  --cl-edge-glow-ok: none;
+  --cl-edge-glow-warn: none;
+  --cl-dot-glow: none;
+  --cl-dot-glow-brand: none;
+  --cl-dot-glow-warn: none;
+
+  /* ── 语义薄染 ──
+     判定条、上传区这类"整块染一层状态色"的表面。与 --cl-*-bg 的区别是它必须
+     半透明：--cl-*-bg 是徽标用的不透明胶囊底，直接拿来当行背景会盖掉卡面的
+     渐变，让整行变成一块实色。 */
+  --cl-ok-tint: rgba(29, 122, 84, .1);
+  --cl-warn-tint: rgba(180, 83, 9, .11);
+  --cl-err-tint: rgba(179, 38, 30, .1);
+  --cl-accent-tint: rgba(14, 116, 144, .09);
+
+  /* ── 强调卡 ──
+     学习中心的 focus 卡、模考/摸底的 eyebrow 卡：比普通卡片"高一档"的表面，
+     底是主色薄染、内部再嵌一团 halo 光斑。warn 变体给"该复习了"这类冷却提示。 */
+  --cl-accent-surface: linear-gradient(135deg, #ece6f5 0%, #f9f4ec 62%);
+  --cl-accent-surface-border: #cfc6dd;
+  --cl-accent-halo: radial-gradient(circle, rgba(79, 70, 229, .1), transparent 66%);
+  --cl-accent-surface-warn: linear-gradient(135deg, #f3e4c4 0%, #f9f2e6 62%);
+  --cl-accent-surface-warn-border: #ddc79b;
+  --cl-accent-halo-warn: radial-gradient(circle, rgba(180, 83, 9, .1), transparent 66%);
+
+  --cl-btn-sheen: rgba(255, 255, 255, .3);
+  --cl-btn-shadow-hover: 0 14px 28px -12px rgba(90, 70, 45, .45), 0 0 0 1px rgba(255, 255, 255, .2) inset;
+  --cl-autofill-bg: #f7f0e4;
+  --cl-skeleton-base: #e9dfcd;
+  --cl-hatch: rgba(59, 50, 38, .1);
+  --cl-warn-deep: #7a4508;
+  --cl-err-deep: #7d2019;
+
+  --cl-auth-fg: #2c241a;
+  --cl-auth-stroke: rgba(92, 80, 64, .55);
+  --cl-auth-rule: rgba(92, 80, 64, .4);
+  --cl-auth-card-shadow: 0 30px 66px -28px rgba(90, 70, 45, .34), 0 2px 0 rgba(255, 255, 255, .5) inset;
+
+  --cl-map-canvas: #f7f1e7;
+  --cl-map-edge: rgba(92, 80, 64, .3);
+  --cl-map-edge-seq: rgba(92, 80, 64, .16);
+  --cl-map-node-stroke: rgba(92, 80, 64, .42);
+  --cl-map-node-hover: #3b2f6b;
+  --cl-map-label-halo: rgba(251, 246, 238, .92);
+
+  --cl-nav-bg: linear-gradient(180deg, #4a3b2a 0%, #3b2f22 100%);
+  --cl-nav-text: rgba(251, 246, 238, .75);        /* 压 nav-bg 6.5 */
+  --cl-nav-text-strong: #fbf6ee;
+  --cl-nav-text-dim: rgba(251, 246, 238, .62);    /* 压 nav-bg 4.7 */
+  --cl-nav-border: rgba(251, 246, 238, .12);
+  --cl-nav-edge: rgba(251, 246, 238, .16);
+  --cl-nav-hover: rgba(251, 246, 238, .1);
+  --cl-nav-surface: rgba(251, 246, 238, .08);
+  --cl-nav-active-bg: linear-gradient(90deg, rgba(217, 201, 174, .3), rgba(217, 201, 174, .09));
+  --cl-nav-active-text: #fbf6ee;
+  --cl-nav-active-border: rgba(217, 201, 174, .32);
+  --cl-nav-logo: #fbf6ee;
+  --cl-nav-bar: #d9a441;                          /* 暖色实条，不发光 */
+  --cl-nav-bar-glow: none;
+  --cl-nav-danger: #f0a89a;
+  --cl-topbar-bg: #f8f2e9;
+  --cl-topbar-border: #e0d3c0;
+  --cl-topbar-edge: transparent;
+
+  --cl-toast-bg: linear-gradient(135deg, rgba(74, 59, 42, .97), rgba(59, 47, 34, .95));
+  --cl-toast-err-bg: linear-gradient(135deg, rgba(155, 44, 34, .97), rgba(179, 38, 30, .93));
+
+  --cl-date-icon-filter: sepia(.35) opacity(.6);
+  --cl-date-icon-filter-hover: sepia(.35) opacity(.95);
+
+  --cl-map-ramp-1: #3b2f6b;
+  --cl-map-ramp-2: #4f46e5;
+  --cl-map-ramp-3: #7c6ad4;
+  --cl-map-ramp-4: #a89ad8;
+  --cl-map-ramp-5: #cfc9f2;
+  --cl-map-neutral: #b8a88e;
+}
+
+/* ══════════════════════════════════════════════════════════
+   夜间 —— 深空靛蓝影院风
+   原单一主题原样搬入。4b962ed 那轮修过的五处对比度已在下面的值里，
+   调这一段之前先看该提交。
+   ══════════════════════════════════════════════════════════ */
+:root[data-theme="night"] {
+  color-scheme: dark;
+
+  --cl-brand: #818cf8;
+  --cl-brand-600: #a5b4fc;   /* 夜间档 600/700 比 brand 更亮：它们用于文字 */
+  --cl-brand-700: #c7d2fe;
+  --cl-brand-200: #3730a3;
+  --cl-brand-100: #312e81;
+  --cl-brand-50: #1e1b4b;
+  --cl-accent: #22d3ee;
+  --cl-accent-soft: #67e8f9;
+  /* 深底上的纯白偏"硬"，压一层浅靛蓝会柔和很多 */
+  --cl-text-grad: linear-gradient(180deg, #ffffff 35%, #c7d2fe 100%);
+  --cl-nav-brand-grad: linear-gradient(180deg, #ffffff 35%, #c7d2fe 100%);
+
+  --cl-ok: #34d399;
+  --cl-warn: #fbbf24;
+  --cl-err: #f87171;
+  --cl-info: #22d3ee;
+  /* 徽标底/字：深底 + 亮字，底色要压得住正文不抢戏 */
+  --cl-ok-bg: #0e2f26;    --cl-ok-fg: #6ee7b7;
+  --cl-warn-bg: #3a2a08;  --cl-warn-fg: #fcd34d;
+  --cl-err-bg: #3a1518;   --cl-err-fg: #fca5a5;
+  --cl-cite-bg: #211d52;  --cl-cite-fg: #a5b4fc;
+  /* 底色压得住正文的代价是与玻璃卡面的明度差变小，边缘会糊在一起。
+     一条同色系的发丝描边把胶囊的形状重新勾出来，比提亮底色更省对比度预算。 */
+  --cl-ok-bd: rgba(110, 231, 183, .22);
+  --cl-warn-bd: rgba(252, 211, 77, .22);
+  --cl-err-bd: rgba(252, 165, 165, .22);
+  --cl-cite-bd: rgba(165, 180, 252, .22);
+  --cl-neutral-bg: rgba(148, 163, 220, .09);
+  --cl-neutral-bd: rgba(165, 180, 252, .14);
+
+  --cl-bg: #06080f;
+  --cl-surface: #0f1424;
+  --cl-surface-2: #151b2e;
+  --cl-surface-3: #1c2438;
+  --cl-border: #232b42;
+  --cl-border-strong: #2f3a56;
+  --cl-text: #e9ecff;
+  --cl-text-2: #aab3ce;
+  --cl-text-3: #848eaf;      /* 历经两次提亮：#6b7492 → #7b85a6 → 现值。
+                                第二次是因为 --cl-glass 是渐变，卡片顶端比底端亮，
+                                再叠一层 --cl-row 后 #7b85a6 只剩 4.21，压线不过。
+                                在卡片最亮处仍有 5.63，与 --cl-text-2 的层级差也还在。 */
+  --cl-text-4: #6b7492;
+
+  /* 这里是真玻璃。刻意不含 backdrop-filter：一页上有十几张卡时，每张一个模糊层
+     的合成开销是实打实的。半透明渐变 + 发丝描边 + 分层阴影在氛围底上几乎看不出
+     区别，而且不要钱。真正需要模糊的表面（吸顶栏、侧栏、下拉面板）自己加 --cl-blur。 */
+  --cl-glass: linear-gradient(168deg, rgba(32, 36, 68, .72), rgba(11, 14, 30, .74));
+  --cl-glass-2: linear-gradient(168deg, rgba(26, 30, 58, .6), rgba(9, 12, 26, .66));
+  --cl-glass-border: rgba(165, 180, 252, .13);
+  --cl-glass-border-hover: rgba(165, 180, 252, .28);
+  /* 顶缘高光：玻璃质感全靠这一条，去掉就退回普通半透明块 */
+  --cl-glass-hi: linear-gradient(90deg, transparent, rgba(199, 210, 254, .6), transparent);
+  --cl-glass-shadow: 0 24px 60px -20px rgba(2, 3, 12, .8), 0 2px 0 rgba(255, 255, 255, .045) inset;
+  --cl-blur: blur(22px) saturate(150%);
+
+  /* 行用极淡的**提亮**色（浅色档是压深），靠"比卡面亮一点"来分层 */
+  --cl-row: rgba(148, 163, 220, .05);
+  --cl-row-hover: rgba(129, 140, 248, .11);
+  --cl-row-border: rgba(165, 180, 252, .1);
+  --cl-row-border-hover: rgba(129, 140, 248, .34);
+
+  --cl-inset: rgba(6, 9, 20, .55);
+  --cl-inset-focus: rgba(10, 14, 30, .82);
+  --cl-inset-deep: rgba(4, 6, 16, .7);
+
+  --cl-popover: rgba(14, 18, 38, .96);
+  --cl-popover-border: rgba(165, 180, 252, .17);
+
+  --cl-tint: rgba(129, 140, 248, .11);
+  --cl-tint-strong: rgba(99, 102, 241, .24);
+  --cl-tint-grad: linear-gradient(90deg, rgba(99, 102, 241, .22), rgba(99, 102, 241, .07));
+  --cl-tint-border: rgba(129, 140, 248, .26);
+  --cl-tint-border-strong: rgba(129, 140, 248, .55);
+
+  /* 代码块比卡面更暗（而不是更亮）：它是"引用进来的另一种介质"，压暗才有嵌进去的
+     感觉；提亮会让它浮在卡片上面，抢正文的注意力。 */
+  --cl-code-bg: rgba(4, 6, 16, .66);
+  --cl-code-border: rgba(165, 180, 252, .12);
+  --cl-code-inline-bg: rgba(129, 140, 248, .13);
+  --cl-code-kw: #a5b4fc;
+  --cl-code-str: #67e8f9;
+  --cl-code-fn: #c7d2fe;
+  --cl-code-num: #fcd34d;
+  --cl-code-attr: #6ee7b7;
+  --cl-code-comment: #848eaf;
+
+  --cl-focus: 0 0 0 4px rgba(99, 102, 241, .18);
+
+  --cl-aurora-1: rgba(34, 211, 238, .26);
+  --cl-aurora-2: rgba(129, 140, 248, .3);
+  --cl-vignette: radial-gradient(125% 95% at 50% 42%, transparent 38%, rgba(2, 3, 10, .55) 100%);
+  --cl-grain-opacity: .1;
+  --cl-grain-blend: overlay;
+  --cl-grid-line: rgba(129, 140, 248, .055);
+  --cl-scene:
+    radial-gradient(120% 90% at 82% 0%, rgba(34, 211, 238, .07), transparent 58%),
+    radial-gradient(100% 85% at 0% 100%, rgba(99, 102, 241, .12), transparent 62%),
+    linear-gradient(158deg, #06080f 0%, #0a0a1c 46%, #100e2b 100%);
+  --cl-scene-auth:
+    radial-gradient(115% 85% at 88% 4%, rgba(34, 211, 238, .13), transparent 58%),
+    radial-gradient(95% 80% at 6% 96%, rgba(99, 102, 241, .22), transparent 62%),
+    linear-gradient(158deg, #06080f 0%, #0d0b22 42%, #16123a 74%, #1b1748 100%);
+
+  --cl-shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --cl-shadow: 0 4px 14px rgba(0, 0, 0, .42), 0 1px 3px rgba(0, 0, 0, .36);
+  --cl-shadow-md: 0 12px 32px -8px rgba(0, 0, 0, .55);
+  --cl-shadow-lg: 0 30px 70px -18px rgba(2, 3, 12, .8);
+  --cl-ring: 0 0 0 4px rgba(99, 102, 241, .16);
+  /* 科技辉光：这一档是真的发光 */
+  --cl-glow: 0 0 0 1px rgba(129, 140, 248, .22), 0 8px 20px -10px rgba(99, 102, 241, .38);
+  --cl-glow-cyan: 0 0 0 1px rgba(103, 232, 249, .3), 0 10px 30px -8px rgba(34, 211, 238, .45);
+  --cl-glow-ok: 0 0 0 1px rgba(52, 211, 153, .3), 0 10px 26px -8px rgba(52, 211, 153, .45);
+  --cl-glow-warn: 0 0 0 1px rgba(251, 191, 36, .3), 0 10px 26px -8px rgba(251, 191, 36, .4);
+  --cl-glow-err: 0 0 0 1px rgba(248, 113, 113, .3), 0 10px 26px -8px rgba(248, 113, 113, .45);
+
+  /* 方向性辉光：这一档是真的发光，分层主要靠它 */
+  --cl-edge-glow: -3px 0 14px -6px rgba(99, 102, 241, .8);
+  --cl-edge-glow-accent: -3px 0 16px -7px rgba(34, 211, 238, .8);
+  --cl-edge-glow-ok: -3px 0 16px -7px rgba(52, 211, 153, .8);
+  --cl-edge-glow-warn: -3px 0 16px -7px rgba(251, 191, 36, .8);
+  --cl-dot-glow: 0 0 8px 1px rgba(34, 211, 238, .8);
+  --cl-dot-glow-brand: 0 0 10px -1px rgba(99, 102, 241, .8);
+  --cl-dot-glow-warn: 0 0 8px 1px rgba(251, 191, 36, .8);
+
+  /* ── 语义薄染 ──
+     判定条、上传区这类"整块染一层状态色"的表面。与 --cl-*-bg 的区别是它必须
+     半透明：--cl-*-bg 是徽标用的不透明胶囊底，直接拿来当行背景会盖掉卡面的
+     渐变，让整行变成一块实色。 */
+  --cl-ok-tint: rgba(52, 211, 153, .13);
+  --cl-warn-tint: rgba(251, 191, 36, .12);
+  --cl-err-tint: rgba(248, 113, 113, .12);
+  --cl-accent-tint: rgba(34, 211, 238, .06);
+
+  /* ── 强调卡 ──
+     学习中心的 focus 卡、模考/摸底的 eyebrow 卡：比普通卡片"高一档"的表面，
+     底是主色薄染、内部再嵌一团 halo 光斑。warn 变体给"该复习了"这类冷却提示。 */
+  --cl-accent-surface: linear-gradient(135deg, rgba(49, 46, 129, .55), rgba(15, 18, 40, .78) 62%);
+  --cl-accent-surface-border: rgba(129, 140, 248, .26);
+  --cl-accent-halo: radial-gradient(circle, rgba(34, 211, 238, .28), transparent 66%);
+  --cl-accent-surface-warn: linear-gradient(135deg, rgba(58, 42, 8, .55), rgba(15, 18, 40, .8) 62%);
+  --cl-accent-surface-warn-border: rgba(252, 211, 77, .24);
+  --cl-accent-halo-warn: radial-gradient(circle, rgba(251, 191, 36, .22), transparent 66%);
+
+  --cl-btn-sheen: rgba(255, 255, 255, .28);
+  --cl-btn-shadow-hover: 0 18px 40px -12px rgba(79, 70, 229, .95), 0 0 0 1px rgba(199, 210, 254, .28) inset;
+  --cl-autofill-bg: #141936;
+  --cl-skeleton-base: rgba(148, 163, 220, .07);
+  --cl-hatch: rgba(148, 163, 220, .1);
+  --cl-warn-deep: #b45309;
+  --cl-err-deep: #b91c1c;
+
+  --cl-auth-fg: #ffffff;
+  --cl-auth-stroke: rgba(178, 190, 253, .62);
+  --cl-auth-rule: rgba(199, 210, 254, .5);
+  --cl-auth-card-shadow: 0 40px 90px -24px rgba(2, 3, 12, .88), 0 2px 0 rgba(255, 255, 255, .045) inset;
+
+  --cl-map-canvas: radial-gradient(80% 60% at 50% 40%, rgba(99, 102, 241, .1), transparent 70%), rgba(4, 6, 16, .58);
+  --cl-map-edge: rgba(165, 180, 252, .2);
+  --cl-map-edge-seq: rgba(165, 180, 252, .1);
+  --cl-map-node-stroke: rgba(165, 180, 252, .34);
+  --cl-map-node-hover: #e0e7ff;
+  --cl-map-label-halo: rgba(4, 6, 16, .85);
+
+  --cl-nav-bg: linear-gradient(180deg, rgba(17, 21, 44, .82), rgba(8, 10, 24, .88));
+  --cl-nav-text: #aab3ce;
+  --cl-nav-text-strong: #e9ecff;
+  --cl-nav-text-dim: #848eaf;
+  --cl-nav-border: rgba(165, 180, 252, .13);
+  --cl-nav-edge: rgba(165, 180, 252, .22);
+  --cl-nav-hover: rgba(129, 140, 248, .1);
+  --cl-nav-surface: linear-gradient(168deg, rgba(26, 30, 58, .6), rgba(9, 12, 26, .66));
+  --cl-nav-active-bg: linear-gradient(90deg, rgba(99, 102, 241, .26), rgba(99, 102, 241, .08));
+  --cl-nav-active-text: #c7d2fe;
+  --cl-nav-active-border: rgba(129, 140, 248, .22);
+  --cl-nav-logo: #a5b4fc;
+  --cl-nav-bar: #67e8f9;
+  --cl-nav-bar-glow: 0 0 10px 1px rgba(103, 232, 249, .7);
+  --cl-nav-danger: #f87171;
+  --cl-topbar-bg: linear-gradient(180deg, rgba(12, 15, 34, .86), rgba(10, 13, 28, .7));
+  --cl-topbar-border: rgba(165, 180, 252, .13);
+  --cl-topbar-edge: rgba(165, 180, 252, .2);
+
+  --cl-toast-bg: linear-gradient(135deg, rgba(79, 70, 229, .96), rgba(6, 182, 212, .9));
+  --cl-toast-err-bg: linear-gradient(135deg, rgba(190, 43, 43, .96), rgba(239, 68, 68, .9));
+
+  /* 原生日期控件的日历图标在深底上默认是黑的，几乎看不见 */
+  --cl-date-icon-filter: invert(1) opacity(.55);
+  --cl-date-icon-filter-hover: invert(1) opacity(.9);
+
+  --cl-map-ramp-1: #4338ca;
+  --cl-map-ramp-2: #5b5ef0;
+  --cl-map-ramp-3: #818cf8;
+  --cl-map-ramp-4: #a5b4fc;
+  --cl-map-ramp-5: #e0e7ff;
+  --cl-map-neutral: #5c6893;
+}
+
+/* ══════════════════════════════════════════════════════════
+   基础元素
+   ══════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; }
+html, body, #app { height: 100%; margin: 0; }
+body {
+  font-family: var(--cl-font);
+  color: var(--cl-text);
+  background: var(--cl-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+a { color: var(--cl-brand-600); text-decoration: none; }
+
+/* 通用卡片（旧类保留兼容：Solve/Practice/Review 直接用它，未走 CLCard 组件） */
+.cl-card {
+  position: relative;
+  background: var(--cl-glass);
+  border: 1px solid var(--cl-glass-border);
+  border-radius: var(--cl-radius);
+  box-shadow: var(--cl-glass-shadow);
+  padding: 20px 22px;
+}
+.cl-card::before {
+  content: '';
+  position: absolute; left: 20px; right: 20px; top: 0; height: 1px;
+  background: var(--cl-glass-hi);
+  pointer-events: none;
+}
+
+/* 按钮（旧类保留兼容，优先用 CLButton 组件） */
+.cl-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px; border: none; cursor: pointer;
+  border-radius: var(--cl-radius-pill);
+  background: var(--cl-brand-grad); color: var(--cl-on-brand); font-size: 14px; font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.cl-btn:hover { filter: brightness(1.06); box-shadow: var(--cl-glow); transform: translateY(-1px); }
+/* 与 CLButton 的禁用态保持一致：压平而不是调淡，理由见该组件内的注释 */
+.cl-btn:disabled {
+  cursor: not-allowed; transform: none;
+  background: var(--cl-tint-strong); color: var(--cl-text-3);
+  box-shadow: 0 0 0 1px var(--cl-glass-border) inset;
+}
+.cl-btn.ghost { background: var(--cl-tint); color: var(--cl-brand-600); }
+.cl-btn.ghost:hover { background: var(--cl-tint-strong); filter: none; }
+
+/* 徽标 */
+.cl-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 10px; border-radius: var(--cl-radius-pill);
+  border: 1px solid transparent;
+  font-size: 12px; font-weight: 600;
+}
+.cl-badge.ok   { background: var(--cl-ok-bg); color: var(--cl-ok-fg); border-color: var(--cl-ok-bd); }
+.cl-badge.warn { background: var(--cl-warn-bg); color: var(--cl-warn-fg); border-color: var(--cl-warn-bd); }
+.cl-badge.err  { background: var(--cl-err-bg); color: var(--cl-err-fg); border-color: var(--cl-err-bd); }
+.cl-badge.cite { background: var(--cl-cite-bg); color: var(--cl-cite-fg); border-color: var(--cl-cite-bd); }
+
+/* 输入（旧类保留兼容：Review 的日期/分钟输入、Solve/Practice 的文本域直接用它） */
+.cl-input, .cl-textarea {
+  width: 100%; padding: 12px 14px; font: inherit;
+  border: 1px solid var(--cl-glass-border); border-radius: var(--cl-radius-sm);
+  background: var(--cl-inset); color: var(--cl-text); outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.cl-input::placeholder, .cl-textarea::placeholder { color: var(--cl-text-3); }
+.cl-input:focus, .cl-textarea:focus {
+  border-color: var(--cl-tint-border-strong);
+  background: var(--cl-inset-focus);
+  box-shadow: var(--cl-ring);
+}
+.cl-textarea { resize: vertical; min-height: 92px; }
+.cl-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: var(--cl-date-icon-filter); cursor: pointer;
+}
+.cl-input[type="date"]::-webkit-calendar-picker-indicator:hover { filter: var(--cl-date-icon-filter-hover); }
+
+.cl-muted { color: var(--cl-text-2); }
+.cl-h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+.cl-sub { color: var(--cl-text-2); font-size: 14px; margin: 0 0 20px; }
+
+/* 轻量 toast */
+.cl-toast-wrap { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
+.cl-toast {
+  padding: 10px 18px; border-radius: var(--cl-radius-pill);
+  border: 1px solid var(--cl-glass-border);
+  box-shadow: var(--cl-shadow-lg); font-size: 14px; color: #fff;
+  background: var(--cl-toast-bg);
+  backdrop-filter: var(--cl-blur);
+  -webkit-backdrop-filter: var(--cl-blur);
+}
+.cl-toast.error { background: var(--cl-toast-err-bg); }
+
+/* ── 代码高亮 ──
+   原先 import 'highlight.js/styles/github-dark.css'，那是一张写死的深色表，
+   data-theme 切不动它 —— 日间/护眼下代码块会是一块黑。改为自建这一段，
+   语法色全部走 --cl-code-* 令牌，三档各自定义。
+   只覆盖实际会被 hljs 打上的高频 token，其余继承正文色，够读。 */
+.hljs-keyword, .hljs-built_in, .hljs-literal, .hljs-type, .hljs-selector-tag { color: var(--cl-code-kw); }
+.hljs-string, .hljs-regexp, .hljs-template-tag, .hljs-selector-attr { color: var(--cl-code-str); }
+.hljs-title, .hljs-title.function_, .hljs-title.class_, .hljs-section, .hljs-name { color: var(--cl-code-fn); }
+.hljs-number, .hljs-symbol, .hljs-bullet, .hljs-link { color: var(--cl-code-num); }
+.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-params, .hljs-property, .hljs-meta { color: var(--cl-code-attr); }
+.hljs-comment, .hljs-quote { color: var(--cl-code-comment); font-style: italic; }
+.hljs-deletion { color: var(--cl-err); }
+.hljs-addition { color: var(--cl-ok); }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+
+/* 全站细滚动条 */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: var(--cl-border-strong); border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
+*::-webkit-scrollbar-thumb:hover { background: var(--cl-text-3); background-clip: padding-box; }
+/* Firefox */
+* { scrollbar-width: thin; scrollbar-color: var(--cl-border-strong) transparent; }

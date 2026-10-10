@@ -1,0 +1,27 @@
+# CourseLoop 后端运行时依赖（Python 3.10）
+# 安装：pip install -r requirements.txt
+#
+# 这份只锁「起服务 + 跑测试 + 解析课件建 FTS5 检索库」所需的东西，
+# 在 2 核 / 4 GB 的交接机上可以一次装完。
+# 向量 RAG、嵌入/精排模型、训练相关的重依赖见 requirements-research.txt（可选，不装也能跑）。
+
+# —— Web 框架 ——
+fastapi==0.135.3
+uvicorn==0.42.0
+python-multipart==0.0.32
+
+# —— HTTP / LLM（OpenAI 兼容协议）——
+httpx==0.28.1
+openai==2.30.0
+
+# —— 配置与校验 ——
+pydantic==2.12.5
+pydantic-settings==2.15.0
+
+# —— 文档解析（课件/教材入库，CL_RAG_MODE=fts5 这条路要用）——
+PyMuPDF==1.27.2.2
+python-pptx==1.0.2
+python-docx==1.1.2
+
+# —— 测试 ——
+pytest==9.1.1

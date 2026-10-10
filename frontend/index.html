@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- favicon 是内联 SVG，不走网络请求。图形与 CLLogo 一致：三节点连成环，
+         呼应 "Loop"。底色跟随品牌靛蓝。favicon 不跟随主题：它显示在浏览器标签页上，
+         那里的底色由浏览器主题决定，跟站内皮肤无关。 -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23151b2e'/%3E%3Cg fill='%23818cf8'%3E%3Ccircle cx='50' cy='27' r='10'/%3E%3Ccircle cx='22' cy='74' r='10'/%3E%3Ccircle cx='78' cy='74' r='10'/%3E%3C/g%3E%3Cpath d='M50 27 L22 74 M50 27 L78 74 M22 74 L78 74' stroke='%2367e8f9' stroke-width='5' fill='none' opacity='.85'/%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 这两个 meta 写默认档（日间）的值，下面的脚本再按用户偏好改写。
+         theme-color 管移动端地址栏；color-scheme 管浏览器自绘的滚动条和原生控件 ——
+         theme.css 里那处要等 CSS 解析完才生效，在那之前首帧已经画过一次了。 -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <script>
+      // 首帧防闪。默认档是日间白底，若用户存的是夜间，等 Vue 挂载再打 data-theme
+      // 会先闪一整屏白。这段必须留在 <head> 里、且在任何 CSS 之前同步执行。
+      //
+      // 只做一件事：把 data-theme 和首帧底色定下来。真正的档位状态由
+      // stores/theme.ts 持有，它启动时读回这里的结论，不重新判断。
+      // 下面的色表是 THEMES[].bg 的镜像，两处必须一致。
+      ;(function () {
+        var BG = { day: '#ffffff', sepia: '#f4ece0', night: '#06080f' }
+        var t
+        // 隐私模式 / 禁用 Cookie 时读 localStorage 会抛，抛了就走默认档
+        try { t = localStorage.getItem('cl_theme_v2') } catch (e) { /* 走默认 */ }
+        if (!BG[t]) t = 'day'
+        var el = document.documentElement
+        // 日间是裸 :root，不打属性 —— 这段脚本万一挂了，页面仍是完整的日间主题
+        if (t !== 'day') el.setAttribute('data-theme', t)
+        el.style.background = BG[t]
+        el.style.colorScheme = t === 'night' ? 'dark' : 'light'
+        var m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.setAttribute('content', BG[t])
+      })()
+    </script>
+    <title>CourseLoop</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

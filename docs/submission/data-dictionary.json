@@ -1,0 +1,2108 @@
+{
+  "business": {
+    "app_settings": [
+      {
+        "ordinal": 0,
+        "name": "key",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "value",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "updated_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "assignments": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "ta_username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "title",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "note",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "knowledge_ids",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "target_count",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "3",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "class_name",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "due_date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "status",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'open'",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "source_error_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "courses": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "display",
+        "type": "TEXT",
+        "not_null": 1,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "short",
+        "type": "TEXT",
+        "not_null": 1,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "exam",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "score",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "code_enabled",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "verification_types",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'[]'",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "knowledge_taxonomy",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'[]'",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "error_examples",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'{}'",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "sample_questions",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'[]'",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "answer_format",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "sort_order",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "enabled",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "1",
+        "pk": 0
+      }
+    ],
+    "dialog_turns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "session_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "role",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "content",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "structured_data",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "error_records": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "error_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "diagnosis",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "resolved",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "ta_reviewed",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "ta_verdict",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "ta_note",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "ta_username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "ta_reviewed_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "ai_error_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 14,
+        "name": "resolved_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 15,
+        "name": "problem_stem",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 16,
+        "name": "student_answer",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 17,
+        "name": "review_reason",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'manual'",
+        "pk": 0
+      },
+      {
+        "ordinal": 18,
+        "name": "review_requested_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 19,
+        "name": "tech_detail",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "ingest_jobs": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "filename",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "stored_path",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "doc_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "parser",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "status",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'pending'",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "error",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "parsed_chunks",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "indexed_chunks",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "duplicate_chunks",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "size_bytes",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "uploaded_by",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 14,
+        "name": "finished_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 15,
+        "name": "withdrawn_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 16,
+        "name": "origin_path",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "knowledge_points": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "chapter",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "description",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "difficulty",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "learning_sessions": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "intent",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "state",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "started_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "completed_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "mastery_records": [
+      {
+        "ordinal": 0,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 2
+      },
+      {
+        "ordinal": 2,
+        "name": "mastery",
+        "type": "REAL",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "confidence",
+        "type": "REAL",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "state",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "last_practiced_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "review_stage",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "next_due_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "last_reviewed_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "mastery_snapshots": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "mastery",
+        "type": "REAL",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "state",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "practice_attempts": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "answer",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "score",
+        "type": "REAL",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "hints_used",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "duration",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "session_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      }
+    ],
+    "problem_knowledge": [
+      {
+        "ordinal": 0,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 1,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "weight",
+        "type": "REAL",
+        "not_null": 0,
+        "default": "1.0",
+        "pk": 0
+      }
+    ],
+    "problems": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "source",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "stem",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "difficulty",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "answer",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "verification_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "func_name",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "ref_code",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "knowledge",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "hint",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "citations",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "review_plans": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "goal",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "start_date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "exam_date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "status",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "daily_minutes",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "60",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "summary",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "span_days",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "baseline_mastery",
+        "type": "REAL",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "baseline_open_errors",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "budget_snapshot",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 14,
+        "name": "materialized_through",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 15,
+        "name": "reconciled_on",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 16,
+        "name": "milestones",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "review_requests": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 1,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "course_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "source",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'hall'",
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "question",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "ai_answer",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "note",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "no_evidence",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "status",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'open'",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "ta_username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "ta_verdict",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "ta_reply",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "answered_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "review_task_attempts": [
+      {
+        "ordinal": 0,
+        "name": "task_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 2
+      },
+      {
+        "ordinal": 2,
+        "name": "correct",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "hints_used",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "review_tasks": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "plan_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "knowledge_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "task_date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "task_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "target_count",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "completed",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "day_index",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "review_round",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "1",
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "stage",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "interval_days",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "minutes",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "15",
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "reason",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "priority",
+        "type": "REAL",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 14,
+        "name": "error_type",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      },
+      {
+        "ordinal": 15,
+        "name": "completed_count",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      },
+      {
+        "ordinal": 16,
+        "name": "completed_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 17,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 18,
+        "name": "tier",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'core'",
+        "pk": 0
+      },
+      {
+        "ordinal": 19,
+        "name": "due_from",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 20,
+        "name": "due_to",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 21,
+        "name": "dropped",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      }
+    ],
+    "rubric_items": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "description",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "score",
+        "type": "REAL",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "expected_evidence",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "study_budget_exceptions": [
+      {
+        "ordinal": 0,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 2
+      },
+      {
+        "ordinal": 2,
+        "name": "minutes",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "note",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "''",
+        "pk": 0
+      }
+    ],
+    "study_budgets": [
+      {
+        "ordinal": 0,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "weekly_minutes",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "intensity",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'medium'",
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "buffer_weekday",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "6",
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "exam_date",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "updated_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "test_cases": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "problem_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "input",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "expected_output",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "hidden",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": "0",
+        "pk": 0
+      }
+    ],
+    "tutor_snapshots": [
+      {
+        "ordinal": 0,
+        "name": "db_session_id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "session_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "snapshot",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "updated_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "users": [
+      {
+        "ordinal": 0,
+        "name": "username",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "role",
+        "type": "TEXT",
+        "not_null": 1,
+        "default": "'student'",
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "name",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "pw_hash",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "salt",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "student_id",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "college",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "major",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 9,
+        "name": "class_name",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 10,
+        "name": "email",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 11,
+        "name": "phone",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 12,
+        "name": "avatar",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 13,
+        "name": "status",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": "'active'",
+        "pk": 0
+      }
+    ]
+  },
+  "rag": {
+    "build_meta": [
+      {
+        "ordinal": 0,
+        "name": "key",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "value",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunk_hashes": [
+      {
+        "ordinal": 0,
+        "name": "hash",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "course",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "source",
+        "type": "TEXT",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "chunk_index",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks": [
+      {
+        "ordinal": 0,
+        "name": "text",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 1,
+        "name": "course",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "doc_type",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "source",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "title_path",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "page_start",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "page_end",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "chunk_index",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks_config": [
+      {
+        "ordinal": 0,
+        "name": "k",
+        "type": "",
+        "not_null": 1,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "v",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks_content": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "c0",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 2,
+        "name": "c1",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 3,
+        "name": "c2",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 4,
+        "name": "c3",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 5,
+        "name": "c4",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 6,
+        "name": "c5",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 7,
+        "name": "c6",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      },
+      {
+        "ordinal": 8,
+        "name": "c7",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks_data": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "block",
+        "type": "BLOB",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks_docsize": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "not_null": 0,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "sz",
+        "type": "BLOB",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ],
+    "chunks_idx": [
+      {
+        "ordinal": 0,
+        "name": "segid",
+        "type": "",
+        "not_null": 1,
+        "default": null,
+        "pk": 1
+      },
+      {
+        "ordinal": 1,
+        "name": "term",
+        "type": "",
+        "not_null": 1,
+        "default": null,
+        "pk": 2
+      },
+      {
+        "ordinal": 2,
+        "name": "pgno",
+        "type": "",
+        "not_null": 0,
+        "default": null,
+        "pk": 0
+      }
+    ]
+  }
+}

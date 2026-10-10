@@ -1,0 +1,177 @@
+{
+  "base": "http://127.0.0.1:18082",
+  "readiness_timeout_ms": 10000,
+  "results": [
+    {
+      "role": "student",
+      "route": "login-form",
+      "passed": true
+    },
+    {
+      "role": "student",
+      "route": "center",
+      "final_path": "/center",
+      "passed": true,
+      "ms": 8190,
+      "screenshot": "student-center.png"
+    },
+    {
+      "role": "student",
+      "route": "hall",
+      "final_path": "/hall",
+      "passed": true,
+      "ms": 13299,
+      "screenshot": "student-hall.png"
+    },
+    {
+      "role": "student",
+      "route": "solve",
+      "final_path": "/solve",
+      "passed": true,
+      "ms": 18203,
+      "screenshot": "student-solve.png"
+    },
+    {
+      "role": "student",
+      "route": "practice",
+      "final_path": "/practice",
+      "passed": true,
+      "ms": 10701,
+      "screenshot": "student-practice.png"
+    },
+    {
+      "role": "student",
+      "route": "records",
+      "final_path": "/records",
+      "passed": true,
+      "ms": 8001,
+      "screenshot": "student-records.png"
+    },
+    {
+      "role": "student",
+      "route": "review",
+      "final_path": "/review",
+      "passed": true,
+      "ms": 5301,
+      "screenshot": "student-review.png"
+    },
+    {
+      "role": "student",
+      "route": "map",
+      "final_path": "/map",
+      "passed": true,
+      "ms": 7102,
+      "screenshot": "student-map.png"
+    },
+    {
+      "role": "student",
+      "route": "exam",
+      "final_path": "/exam",
+      "passed": true,
+      "ms": 8395,
+      "screenshot": "student-exam.png"
+    },
+    {
+      "role": "student",
+      "route": "placement",
+      "final_path": "/placement",
+      "passed": true,
+      "ms": 8098,
+      "screenshot": "student-placement.png"
+    },
+    {
+      "role": "student",
+      "route": "photo-grade",
+      "final_path": "/photo-grade",
+      "passed": true,
+      "ms": 7805,
+      "screenshot": "student-photo-grade.png"
+    },
+    {
+      "role": "student",
+      "route": "report",
+      "final_path": "/report",
+      "passed": true,
+      "ms": 7495,
+      "screenshot": "student-report.png"
+    },
+    {
+      "role": "student",
+      "route": "community",
+      "final_path": "/community",
+      "passed": true,
+      "ms": 7500,
+      "screenshot": "student-community.png"
+    },
+    {
+      "role": "student",
+      "route": "profile",
+      "final_path": "/profile",
+      "passed": true,
+      "ms": 7316,
+      "screenshot": "student-profile.png"
+    },
+    {
+      "role": "student",
+      "route": "users-permission",
+      "passed": true,
+      "final_path": "/center"
+    },
+    {
+      "role": "ta",
+      "route": "login-form",
+      "passed": true
+    },
+    {
+      "role": "ta",
+      "route": "teaching",
+      "final_path": "/teaching",
+      "passed": true,
+      "ms": 8305,
+      "screenshot": "ta-teaching.png"
+    },
+    {
+      "role": "teacher",
+      "route": "login-form",
+      "passed": true
+    },
+    {
+      "role": "teacher",
+      "route": "teaching",
+      "final_path": "/teaching",
+      "passed": true,
+      "ms": 7196,
+      "screenshot": "teacher-teaching.png"
+    },
+    {
+      "role": "admin",
+      "route": "login-form",
+      "passed": true
+    },
+    {
+      "role": "admin",
+      "route": "teaching",
+      "final_path": "/teaching",
+      "passed": true,
+      "ms": 8004,
+      "screenshot": "admin-teaching.png"
+    },
+    {
+      "role": "admin",
+      "route": "materials",
+      "final_path": "/materials",
+      "passed": true,
+      "ms": 5800,
+      "screenshot": "admin-materials.png"
+    },
+    {
+      "role": "admin",
+      "route": "users",
+      "final_path": "/users",
+      "passed": true,
+      "ms": 6005,
+      "screenshot": "admin-users.png"
+    }
+  ],
+  "page_errors": []
+}

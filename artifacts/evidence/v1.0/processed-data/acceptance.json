@@ -1,0 +1,33 @@
+{
+  "scope": "local disposable processed-content runtime; CPU/SQLite; no LLM calls",
+  "problems": 4810,
+  "chunks": 2646,
+  "functional_checks": 86,
+  "functional_passed": 86,
+  "concurrent_requests": 100,
+  "all_attempts_complete": true,
+  "all_mastery_consistent": true,
+  "retrieval_checks": [
+    {
+      "course": "ds-algo",
+      "query": "栈与队列",
+      "hits": 3
+    },
+    {
+      "course": "co",
+      "query": "Cache",
+      "hits": 3
+    },
+    {
+      "course": "os",
+      "query": "LRU",
+      "hits": 3
+    },
+    {
+      "course": "net",
+      "query": "TCP 三次握手",
+      "hits": 3
+    }
+  ],
+  "passed": true
+}

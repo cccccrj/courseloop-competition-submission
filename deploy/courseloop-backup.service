@@ -1,0 +1,13 @@
+# 业务库定时备份。与 .timer 成对放到 /etc/systemd/system/
+#   systemctl enable --now courseloop-backup.timer
+#   systemctl list-timers courseloop-backup
+[Unit]
+Description=CourseLoop 业务库备份
+
+[Service]
+Type=oneshot
+User=courseloop
+WorkingDirectory=/opt/courseloop
+# backup_userdb 走 SQLite 在线 backup API（不是 cp），拷完立刻 integrity_check——
+# cp 一个正在被写的库可能拷到撕裂的中间态，而坏备份比没备份更危险。
+ExecStart=/opt/courseloop/.venv/bin/python scripts/backup_userdb.py --keep 80

@@ -1,0 +1,64 @@
+{
+  "profile": "processed-course-content",
+  "attribution": "部分数据来源于南京理工大学计算机科学与工程学院本科生自建数据库。",
+  "content_tables": {
+    "courses": 4,
+    "knowledge_points": 220,
+    "problems": 4810,
+    "test_cases": 6086,
+    "rubric_items": 383,
+    "problem_knowledge": 4980
+  },
+  "retrieval_chunks": 2646,
+  "chunks_by_course": {
+    "co": 361,
+    "ds-algo": 1767,
+    "net": 414,
+    "os": 104
+  },
+  "production_identity_rows": 0,
+  "production_learning_rows": 0,
+  "configuration_rows_copied": 0,
+  "files": {
+    "courseloop.db": {
+      "bytes": 5795840,
+      "sha256": "f96f6ffd705281e64ca19816db9a66136f96bb67f684dd9baeaeb85b271145dd"
+    },
+    "rag_fts.db": {
+      "bytes": 15548416,
+      "sha256": "d562111342c5e08734aa903889b3089f0ee0de3ada904840049d338f9637086d"
+    }
+  },
+  "reviewer_accounts_created": 7,
+  "empty_personal_and_instance_tables": {
+    "app_settings": 0,
+    "assignments": 0,
+    "dialog_turns": 0,
+    "error_records": 0,
+    "ingest_jobs": 0,
+    "learning_sessions": 0,
+    "mastery_records": 0,
+    "mastery_snapshots": 0,
+    "practice_attempts": 0,
+    "review_plans": 0,
+    "review_requests": 0,
+    "review_task_attempts": 0,
+    "review_tasks": 0,
+    "study_budget_exceptions": 0,
+    "study_budgets": 0,
+    "tutor_snapshots": 0
+  },
+  "fts_runtime_normalization": {
+    "sqlite_version": "3.51.2",
+    "content_sha256": "eb8417a05bc9f0e4707c3785384de979e51f2e1e53fd729071e4756206edb1cc",
+    "content_unchanged": true,
+    "cross_version_integrity_verified": [
+      "3.37.2",
+      "3.51.2"
+    ]
+  },
+  "exported_on": "2026-10-10",
+  "version": "v1.0",
+  "file_digest_scope": "sanitized export work copy; packaged data hashes are in runtime DATA_MANIFEST.json",
+  "credential_scope": "Fresh local fictional demo passwords; live credentials excluded"
+}

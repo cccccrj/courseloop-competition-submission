@@ -1,0 +1,17 @@
+# CourseLoop 可选重依赖（向量 RAG / 嵌入 / 训练）
+# 安装：pip install -r requirements-research.txt
+#
+# ⚠️ 不装也能跑。以下功能才需要它们：
+#   - 向量检索（CL_RAG_MODE=vector，走 backend/rag/ingest.py 建 Chroma 索引）
+#     默认的 CL_RAG_MODE=fts5 走 SQLite 全文检索，不碰这些包。
+#   - scripts/ 下的 SFT / GRPO 训练与评测脚本。
+#
+# torch 请按本机 CUDA 版本单独安装，不在此锁定；无卡机器上以上功能均不可用。
+
+# —— 向量库与嵌入 ——
+chromadb==1.5.5
+sentence-transformers==5.3.0
+llama-index==0.14.22
+
+# —— Agent 编排（预留，当前代码未引用）——
+langgraph==1.2.2

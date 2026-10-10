@@ -1,0 +1,10 @@
+[Unit]
+Description=每 3 小时备份一次 CourseLoop 业务库
+
+[Timer]
+OnCalendar=0/3:00:00
+# 关机期间错过的补跑一次：教学机晚上关机是常态，不补的话周末等于没备份
+Persistent=true
+
+[Install]
+WantedBy=timers.target

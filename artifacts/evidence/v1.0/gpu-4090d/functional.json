@@ -1,0 +1,1257 @@
+{
+  "captured_at": "2026-10-09T11:34:43.305736+00:00",
+  "environment": "isolated deployment / synthetic identities",
+  "problem_count": 36,
+  "checks": [
+    {
+      "name": "公开只读 /health",
+      "ok": true,
+      "status": 200,
+      "ms": 6.35
+    },
+    {
+      "name": "公开只读 /courses",
+      "ok": true,
+      "status": 200,
+      "ms": 8.74
+    },
+    {
+      "name": "公开只读 /error-tags",
+      "ok": true,
+      "status": 200,
+      "ms": 3.91
+    },
+    {
+      "name": "匿名拒绝 /auth/profile",
+      "ok": true,
+      "status": 401,
+      "ms": 4.35
+    },
+    {
+      "name": "匿名拒绝 /sessions",
+      "ok": true,
+      "status": 401,
+      "ms": 7.22
+    },
+    {
+      "name": "匿名拒绝 /records/errors",
+      "ok": true,
+      "status": 401,
+      "ms": 4.44
+    },
+    {
+      "name": "匿名拒绝 /records/mastery",
+      "ok": true,
+      "status": 401,
+      "ms": 4.59
+    },
+    {
+      "name": "匿名高权限拒绝 /admin/runtime",
+      "ok": true,
+      "status": 403,
+      "ms": 5.57
+    },
+    {
+      "name": "匿名高权限拒绝 /admin/users",
+      "ok": true,
+      "status": 403,
+      "ms": 4.9
+    },
+    {
+      "name": "匿名高权限拒绝 /teaching/errors",
+      "ok": true,
+      "status": 403,
+      "ms": 6.66
+    },
+    {
+      "name": "不公开接口文档 /docs",
+      "ok": true,
+      "status": 404,
+      "ms": 5.08
+    },
+    {
+      "name": "不公开接口文档 /openapi.json",
+      "ok": true,
+      "status": 404,
+      "ms": 2.93
+    },
+    {
+      "name": "不公开接口文档 /redoc",
+      "ok": true,
+      "status": 404,
+      "ms": 2.77
+    },
+    {
+      "name": "错误密码拒绝",
+      "ok": true,
+      "status": 401,
+      "ms": 6.22
+    },
+    {
+      "name": "ds-algo knowledge",
+      "ok": true,
+      "status": 200,
+      "ms": 8.08
+    },
+    {
+      "name": "ds-algo problems",
+      "ok": true,
+      "status": 200,
+      "ms": 8.81
+    },
+    {
+      "name": "ds-algo practice/recommend",
+      "ok": true,
+      "status": 200,
+      "ms": 17.33
+    },
+    {
+      "name": "ds-algo learning/center",
+      "ok": true,
+      "status": 200,
+      "ms": 23.25
+    },
+    {
+      "name": "ds-algo records/mastery",
+      "ok": true,
+      "status": 200,
+      "ms": 10.88
+    },
+    {
+      "name": "ds-algo records/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 7.43
+    },
+    {
+      "name": "ds-algo profile/weak",
+      "ok": true,
+      "status": 200,
+      "ms": 11.67
+    },
+    {
+      "name": "ds-algo placement/status",
+      "ok": true,
+      "status": 200,
+      "ms": 10.36
+    },
+    {
+      "name": "co knowledge",
+      "ok": true,
+      "status": 200,
+      "ms": 5.31
+    },
+    {
+      "name": "co problems",
+      "ok": true,
+      "status": 200,
+      "ms": 5.5
+    },
+    {
+      "name": "co practice/recommend",
+      "ok": true,
+      "status": 200,
+      "ms": 9.71
+    },
+    {
+      "name": "co learning/center",
+      "ok": true,
+      "status": 200,
+      "ms": 10.11
+    },
+    {
+      "name": "co records/mastery",
+      "ok": true,
+      "status": 200,
+      "ms": 9.01
+    },
+    {
+      "name": "co records/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 7.26
+    },
+    {
+      "name": "co profile/weak",
+      "ok": true,
+      "status": 200,
+      "ms": 10.73
+    },
+    {
+      "name": "co placement/status",
+      "ok": true,
+      "status": 200,
+      "ms": 8.71
+    },
+    {
+      "name": "os knowledge",
+      "ok": true,
+      "status": 200,
+      "ms": 5.09
+    },
+    {
+      "name": "os problems",
+      "ok": true,
+      "status": 200,
+      "ms": 5.54
+    },
+    {
+      "name": "os practice/recommend",
+      "ok": true,
+      "status": 200,
+      "ms": 9.68
+    },
+    {
+      "name": "os learning/center",
+      "ok": true,
+      "status": 200,
+      "ms": 10.14
+    },
+    {
+      "name": "os records/mastery",
+      "ok": true,
+      "status": 200,
+      "ms": 11.18
+    },
+    {
+      "name": "os records/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 8.64
+    },
+    {
+      "name": "os profile/weak",
+      "ok": true,
+      "status": 200,
+      "ms": 12.21
+    },
+    {
+      "name": "os placement/status",
+      "ok": true,
+      "status": 200,
+      "ms": 8.37
+    },
+    {
+      "name": "net knowledge",
+      "ok": true,
+      "status": 200,
+      "ms": 5.64
+    },
+    {
+      "name": "net problems",
+      "ok": true,
+      "status": 200,
+      "ms": 5.07
+    },
+    {
+      "name": "net practice/recommend",
+      "ok": true,
+      "status": 200,
+      "ms": 7.96
+    },
+    {
+      "name": "net learning/center",
+      "ok": true,
+      "status": 200,
+      "ms": 11.31
+    },
+    {
+      "name": "net records/mastery",
+      "ok": true,
+      "status": 200,
+      "ms": 10.51
+    },
+    {
+      "name": "net records/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 8.03
+    },
+    {
+      "name": "net profile/weak",
+      "ok": true,
+      "status": 200,
+      "ms": 11.89
+    },
+    {
+      "name": "net placement/status",
+      "ok": true,
+      "status": 200,
+      "ms": 8.61
+    },
+    {
+      "name": "学生功能 /study/budget",
+      "ok": true,
+      "status": 200,
+      "ms": 6.7
+    },
+    {
+      "name": "学生功能 /exam/preview",
+      "ok": true,
+      "status": 200,
+      "ms": 15.05
+    },
+    {
+      "name": "学生功能 /exam/history",
+      "ok": true,
+      "status": 200,
+      "ms": 5.23
+    },
+    {
+      "name": "学生功能 /review/plan/active?course=os",
+      "ok": true,
+      "status": 200,
+      "ms": 5.51
+    },
+    {
+      "name": "学生功能 /report/weekly?course=os&with_comment=false",
+      "ok": true,
+      "status": 200,
+      "ms": 10.22
+    },
+    {
+      "name": "学生功能 /community/standings?course=os",
+      "ok": true,
+      "status": 200,
+      "ms": 9.15
+    },
+    {
+      "name": "学生功能 /sessions",
+      "ok": true,
+      "status": 200,
+      "ms": 4.82
+    },
+    {
+      "name": "学生越权拒绝 /admin/runtime",
+      "ok": true,
+      "status": 403,
+      "ms": 3.5
+    },
+    {
+      "name": "学生越权拒绝 /admin/users",
+      "ok": true,
+      "status": 403,
+      "ms": 3.32
+    },
+    {
+      "name": "学生越权拒绝 /teaching/overview",
+      "ok": true,
+      "status": 403,
+      "ms": 5.57
+    },
+    {
+      "name": "学生越权拒绝 /teaching/heatmap",
+      "ok": true,
+      "status": 403,
+      "ms": 4.46
+    },
+    {
+      "name": "伪造令牌拒绝",
+      "ok": true,
+      "status": 401,
+      "ms": 2.29
+    },
+    {
+      "name": "客户端角色头不能提权",
+      "ok": true,
+      "status": 403,
+      "ms": 3.1
+    },
+    {
+      "name": "教务运行态",
+      "ok": true,
+      "status": 200,
+      "ms": 10.04
+    },
+    {
+      "name": "助教/teaching/overview",
+      "ok": true,
+      "status": 200,
+      "ms": 7.79
+    },
+    {
+      "name": "助教/teaching/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 5.52
+    },
+    {
+      "name": "助教/teaching/heatmap",
+      "ok": true,
+      "status": 200,
+      "ms": 18.79
+    },
+    {
+      "name": "助教/teaching/today",
+      "ok": true,
+      "status": 200,
+      "ms": 22.92
+    },
+    {
+      "name": "教师/teaching/overview",
+      "ok": true,
+      "status": 200,
+      "ms": 6.89
+    },
+    {
+      "name": "教师/teaching/errors",
+      "ok": true,
+      "status": 200,
+      "ms": 3.88
+    },
+    {
+      "name": "教师/teaching/heatmap",
+      "ok": true,
+      "status": 200,
+      "ms": 16.17
+    },
+    {
+      "name": "教师/teaching/today",
+      "ok": true,
+      "status": 200,
+      "ms": 20.66
+    },
+    {
+      "name": "写入前学情",
+      "ok": true,
+      "status": 200,
+      "ms": 14.06
+    },
+    {
+      "name": "确定性判分：错答",
+      "ok": true,
+      "status": 200,
+      "ms": 10.87
+    },
+    {
+      "name": "错答进入错题本",
+      "ok": true,
+      "status": 200,
+      "ms": 5.05
+    },
+    {
+      "name": "其他学生看不到我的错题",
+      "ok": true,
+      "status": 200,
+      "ms": 4.96
+    },
+    {
+      "name": "学生申请人工复核",
+      "ok": true,
+      "status": 200,
+      "ms": 7.75
+    },
+    {
+      "name": "助教看到申请上下文",
+      "ok": true,
+      "status": 200,
+      "ms": 4.99
+    },
+    {
+      "name": "教师确认错因",
+      "ok": true,
+      "status": 200,
+      "ms": 8.24
+    },
+    {
+      "name": "学生读回教师反馈",
+      "ok": true,
+      "status": 200,
+      "ms": 5.15
+    },
+    {
+      "name": "同题纠正并复测",
+      "ok": true,
+      "status": 200,
+      "ms": 7.82
+    },
+    {
+      "name": "复测后学情",
+      "ok": true,
+      "status": 200,
+      "ms": 15.31
+    },
+    {
+      "name": "复习排期",
+      "ok": true,
+      "status": 200,
+      "ms": 1477.2
+    },
+    {
+      "name": "助教布置针对性作业",
+      "ok": true,
+      "status": 200,
+      "ms": 16.61
+    },
+    {
+      "name": "学生看到布置的作业",
+      "ok": true,
+      "status": 200,
+      "ms": 8.99
+    },
+    {
+      "name": "完成作业真实作答",
+      "ok": true,
+      "status": 200,
+      "ms": 7.51
+    },
+    {
+      "name": "会话持久化读回",
+      "ok": true,
+      "status": 200,
+      "ms": 6.37
+    },
+    {
+      "name": "其他学生不可读会话",
+      "ok": true,
+      "status": 404,
+      "ms": 4.65
+    },
+    {
+      "name": "其他学生不可删会话",
+      "ok": true,
+      "status": 404,
+      "ms": 5.49
+    },
+    {
+      "name": "停用令牌即时失效",
+      "ok": true,
+      "status": 401,
+      "ms": 3.35
+    }
+  ],
+  "cases": {
+    "collaboration": {
+      "problem_id": 17,
+      "wrong_answer": "B",
+      "correct_answer": "A",
+      "incorrect": {
+        "mode": "numeric",
+        "passed": false,
+        "details": "你选了 B，正确答案是 A",
+        "answer": "{\"kind\": \"choice\", \"value\": \"A\"}",
+        "ratio": 0.0
+      },
+      "correction": {
+        "mode": "numeric",
+        "passed": true,
+        "details": "你选了 A，正确答案是 A",
+        "answer": "{\"kind\": \"choice\", \"value\": \"A\"}",
+        "ratio": 1.0
+      },
+      "review": {
+        "id": 3,
+        "error_type": "knowledge_gap",
+        "error_name": "知识缺失",
+        "follow_up": "补前置知识后重讲，再出基础题确认",
+        "ta_verdict": "confirm",
+        "ta_reviewed": true,
+        "impact": []
+      },
+      "plan": {
+        "id": 2,
+        "username": "competition-student",
+        "course_id": "ds-algo",
+        "goal": "",
+        "start_date": "2026-10-09",
+        "exam_date": "2026-11-07",
+        "status": "active",
+        "daily_minutes": 30,
+        "created_at": "2026-10-09 19:34:45",
+        "summary": "",
+        "span_days": 14,
+        "baseline_mastery": 0.0,
+        "baseline_open_errors": 0,
+        "budget_snapshot": "{\"weekly_minutes\": [30, 30, 30, 30, 30, 30, 30], \"intensity\": \"medium\", \"buffer_weekday\": -1, \"exam_date\": \"\", \"exceptions\": [], \"is_default\": true}",
+        "materialized_through": "2026-10-22",
+        "reconciled_on": "2026-10-09",
+        "milestones": [
+          {
+            "week_start": "2026-10-23",
+            "week_end": "2026-10-25",
+            "chapters": [
+              "栈、队列和数组",
+              "树和二叉树"
+            ],
+            "points": [
+              {
+                "knowledge_id": 13,
+                "name": "栈"
+              },
+              {
+                "knowledge_id": 14,
+                "name": "数组与特殊矩阵"
+              },
+              {
+                "knowledge_id": 15,
+                "name": "串与模式匹配"
+              },
+              {
+                "knowledge_id": 3,
+                "name": "二叉树遍历"
+              }
+            ],
+            "point_count": 4,
+            "minutes": 60
+          },
+          {
+            "week_start": "2026-10-26",
+            "week_end": "2026-11-01",
+            "chapters": [
+              "树和二叉树",
+              "图"
+            ],
+            "points": [
+              {
+                "knowledge_id": 16,
+                "name": "线索二叉树"
+              },
+              {
+                "knowledge_id": 17,
+                "name": "哈夫曼树与编码"
+              },
+              {
+                "knowledge_id": 18,
+                "name": "并查集"
+              },
+              {
+                "knowledge_id": 19,
+                "name": "堆"
+              },
+              {
+                "knowledge_id": 20,
+                "name": "图的存储"
+              },
+              {
+                "knowledge_id": 21,
+                "name": "图的遍历"
+              },
+              {
+                "knowledge_id": 22,
+                "name": "最小生成树"
+              },
+              {
+                "knowledge_id": 23,
+                "name": "最短路径"
+              },
+              {
+                "knowledge_id": 24,
+                "name": "拓扑排序与关键路径"
+              }
+            ],
+            "point_count": 9,
+            "minutes": 135
+          },
+          {
+            "week_start": "2026-11-02",
+            "week_end": "2026-11-07",
+            "chapters": [
+              "查找"
+            ],
+            "points": [
+              {
+                "knowledge_id": 25,
+                "name": "顺序与折半查找"
+              }
+            ],
+            "point_count": 1,
+            "minutes": 15
+          }
+        ],
+        "tasks": [
+          {
+            "id": 15,
+            "plan_id": 2,
+            "knowledge_id": 8,
+            "task_date": "2026-10-09",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 1,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-09",
+            "due_to": "2026-10-10",
+            "dropped": 0,
+            "name": "数据结构基本概念"
+          },
+          {
+            "id": 18,
+            "plan_id": 2,
+            "knowledge_id": 9,
+            "task_date": "2026-10-10",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 2,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-10",
+            "due_to": "2026-10-11",
+            "dropped": 0,
+            "name": "时间复杂度分析"
+          },
+          {
+            "id": 21,
+            "plan_id": 2,
+            "knowledge_id": 10,
+            "task_date": "2026-10-11",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 3,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-11",
+            "due_to": "2026-10-12",
+            "dropped": 0,
+            "name": "线性表"
+          },
+          {
+            "id": 16,
+            "plan_id": 2,
+            "knowledge_id": 8,
+            "task_date": "2026-10-12",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 4,
+            "review_round": 2,
+            "stage": 1,
+            "interval_days": 7,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-12",
+            "due_to": "2026-10-14",
+            "dropped": 0,
+            "name": "数据结构基本概念"
+          },
+          {
+            "id": 19,
+            "plan_id": 2,
+            "knowledge_id": 9,
+            "task_date": "2026-10-13",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 5,
+            "review_round": 2,
+            "stage": 1,
+            "interval_days": 7,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-13",
+            "due_to": "2026-10-15",
+            "dropped": 0,
+            "name": "时间复杂度分析"
+          },
+          {
+            "id": 22,
+            "plan_id": 2,
+            "knowledge_id": 10,
+            "task_date": "2026-10-14",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 6,
+            "review_round": 2,
+            "stage": 1,
+            "interval_days": 7,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-14",
+            "due_to": "2026-10-16",
+            "dropped": 0,
+            "name": "线性表"
+          },
+          {
+            "id": 24,
+            "plan_id": 2,
+            "knowledge_id": 11,
+            "task_date": "2026-10-15",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 7,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-15",
+            "due_to": "2026-10-16",
+            "dropped": 0,
+            "name": "顺序表"
+          },
+          {
+            "id": 26,
+            "plan_id": 2,
+            "knowledge_id": 12,
+            "task_date": "2026-10-16",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 8,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-16",
+            "due_to": "2026-10-17",
+            "dropped": 0,
+            "name": "链表"
+          },
+          {
+            "id": 28,
+            "plan_id": 2,
+            "knowledge_id": 2,
+            "task_date": "2026-10-17",
+            "task_type": "讲解+基础练习",
+            "target_count": 3,
+            "completed": 0,
+            "day_index": 9,
+            "review_round": 1,
+            "stage": 0,
+            "interval_days": 3,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "core",
+            "due_from": "2026-10-17",
+            "due_to": "2026-10-18",
+            "dropped": 0,
+            "name": "队列"
+          },
+          {
+            "id": 25,
+            "plan_id": 2,
+            "knowledge_id": 11,
+            "task_date": "2026-10-18",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 10,
+            "review_round": 2,
+            "stage": 1,
+            "interval_days": 7,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-18",
+            "due_to": "2026-10-20",
+            "dropped": 0,
+            "name": "顺序表"
+          },
+          {
+            "id": 17,
+            "plan_id": 2,
+            "knowledge_id": 8,
+            "task_date": "2026-10-19",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 11,
+            "review_round": 3,
+            "stage": 2,
+            "interval_days": 14,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-19",
+            "due_to": "2026-10-23",
+            "dropped": 0,
+            "name": "数据结构基本概念"
+          },
+          {
+            "id": 20,
+            "plan_id": 2,
+            "knowledge_id": 9,
+            "task_date": "2026-10-20",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 12,
+            "review_round": 3,
+            "stage": 2,
+            "interval_days": 14,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-20",
+            "due_to": "2026-10-24",
+            "dropped": 0,
+            "name": "时间复杂度分析"
+          },
+          {
+            "id": 23,
+            "plan_id": 2,
+            "knowledge_id": 10,
+            "task_date": "2026-10-21",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 13,
+            "review_round": 3,
+            "stage": 2,
+            "interval_days": 14,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-21",
+            "due_to": "2026-10-25",
+            "dropped": 0,
+            "name": "线性表"
+          },
+          {
+            "id": 27,
+            "plan_id": 2,
+            "knowledge_id": 12,
+            "task_date": "2026-10-22",
+            "task_type": "错题重做 + 自测",
+            "target_count": 1,
+            "completed": 0,
+            "day_index": 14,
+            "review_round": 2,
+            "stage": 1,
+            "interval_days": 7,
+            "minutes": 15,
+            "reason": "掌握度低，需重新学习",
+            "priority": 1.5,
+            "error_type": "",
+            "completed_count": 0,
+            "completed_at": null,
+            "created_at": "2026-10-09 19:34:45",
+            "tier": "optional",
+            "due_from": "2026-10-22",
+            "due_to": "2026-10-24",
+            "dropped": 0,
+            "name": "链表"
+          }
+        ],
+        "progress": {
+          "plan_id": 2,
+          "completion_rate": 0.0,
+          "completed_tasks": 0,
+          "total_tasks": 14,
+          "open_errors": 0,
+          "error_resolve_rate": 0.0,
+          "mastery_delta": 0.0
+        },
+        "today": {
+          "date": "2026-10-09",
+          "budget_minutes": 30,
+          "planned_minutes": 15,
+          "core": [
+            {
+              "id": 15,
+              "plan_id": 2,
+              "knowledge_id": 8,
+              "task_date": "2026-10-09",
+              "task_type": "讲解+基础练习",
+              "target_count": 3,
+              "completed": 0,
+              "day_index": 1,
+              "review_round": 1,
+              "stage": 0,
+              "interval_days": 3,
+              "minutes": 15,
+              "reason": "掌握度低，需重新学习",
+              "priority": 1.5,
+              "error_type": "",
+              "completed_count": 0,
+              "completed_at": null,
+              "created_at": "2026-10-09 19:34:45",
+              "tier": "core",
+              "due_from": "2026-10-09",
+              "due_to": "2026-10-10",
+              "dropped": 0,
+              "name": "数据结构基本概念"
+            }
+          ],
+          "optional": [],
+          "catchup": [],
+          "done": false,
+          "is_buffer_day": false
+        },
+        "week": [
+          {
+            "date": "2026-10-09",
+            "weekday": 4,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 1,
+            "optional_count": 0,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-10",
+            "weekday": 5,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 1,
+            "optional_count": 0,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-11",
+            "weekday": 6,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 1,
+            "optional_count": 0,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-12",
+            "weekday": 0,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 0,
+            "optional_count": 1,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-13",
+            "weekday": 1,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 0,
+            "optional_count": 1,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-14",
+            "weekday": 2,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 0,
+            "optional_count": 1,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          },
+          {
+            "date": "2026-10-15",
+            "weekday": 3,
+            "budget_minutes": 30,
+            "planned_minutes": 15,
+            "done_minutes": 0,
+            "core_count": 1,
+            "optional_count": 0,
+            "catchup_count": 0,
+            "is_buffer_day": false,
+            "is_exception": false,
+            "cap_minutes": 21
+          }
+        ],
+        "cold_start": true
+      },
+      "assignment": {
+        "id": 2,
+        "ta_username": "competition-ta",
+        "course_id": "ds-algo",
+        "title": "比赛隔离作业",
+        "note": "",
+        "knowledge_ids": [
+          1
+        ],
+        "target_count": 1,
+        "class_name": "",
+        "due_date": "",
+        "status": "open",
+        "created_at": "2026-10-09 19:34:45",
+        "source_error_type": "",
+        "points": [
+          {
+            "knowledge_id": 1,
+            "name": "栈的应用"
+          }
+        ],
+        "source_name": "",
+        "source_follow_up": "",
+        "overdue": false,
+        "students": [
+          {
+            "username": "competition-disabled-probe",
+            "name": "competition-disabled-probe",
+            "class_name": "",
+            "student_id": "",
+            "done": 0,
+            "done_by_point": {
+              "1": 0
+            },
+            "points_done": 0,
+            "points_total": 1,
+            "target": 1,
+            "completed": false,
+            "rate": 0.0
+          },
+          {
+            "username": "competition-student",
+            "name": "虚构student",
+            "class_name": "比赛演示班",
+            "student_id": "",
+            "done": 0,
+            "done_by_point": {
+              "1": 0
+            },
+            "points_done": 0,
+            "points_total": 1,
+            "target": 1,
+            "completed": false,
+            "rate": 0.0
+          },
+          {
+            "username": "competition-student2",
+            "name": "虚构student",
+            "class_name": "比赛演示班",
+            "student_id": "",
+            "done": 0,
+            "done_by_point": {
+              "1": 0
+            },
+            "points_done": 0,
+            "points_total": 1,
+            "target": 1,
+            "completed": false,
+            "rate": 0.0
+          },
+          {
+            "username": "demo_student",
+            "name": "演示学生",
+            "class_name": "",
+            "student_id": "",
+            "done": 0,
+            "done_by_point": {
+              "1": 0
+            },
+            "points_done": 0,
+            "points_total": 1,
+            "target": 1,
+            "completed": false,
+            "rate": 0.0
+          }
+        ],
+        "completed_students": 0,
+        "total_students": 4,
+        "completion_rate": 0.0,
+        "effect": {
+          "pairs": 1,
+          "before": 0.2813,
+          "after": 0.2813,
+          "attempts_after": 0,
+          "correct_after": 0,
+          "accuracy_after": null,
+          "students_active": 0,
+          "enough": false
+        }
+      },
+      "attempts_before": 3,
+      "attempts_after": 5
+    }
+  }
+}
